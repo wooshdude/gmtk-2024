@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhxoqc2og68rd"]
+
+[ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
+[ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
+
+[node name="Desk" type="Node2D"]
+script = ExtResource("1_kqsai")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_4086j")
+
+[node name="GoodButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1055.0
+offset_top = 359.0
+offset_right = 1132.0
+offset_bottom = 426.0
+text = "good soul"
+
+[node name="BadButton" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 1056.0
+offset_top = 448.0
+offset_right = 1138.0
+offset_bottom = 512.0
+text = "bad soul"
+
+[connection signal="button_down" from="CanvasLayer/Control/GoodButton" to="." method="_on_good_button_button_down"]
+[connection signal="button_down" from="CanvasLayer/Control/BadButton" to="." method="_on_bad_button_button_down"]
