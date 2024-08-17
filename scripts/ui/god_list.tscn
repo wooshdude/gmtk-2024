@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://3mcrgihku5cu"]
+
+[ext_resource type="Texture2D" uid="uid://dm4t8i4wba251" path="res://icon.svg" id="1_7xj24"]
+[ext_resource type="Script" path="res://scripts/ui/god_list.gd" id="1_gnvf2"]
+[ext_resource type="Script" path="res://scripts/ui/god_button.gd" id="1_onedv"]
+
+[sub_resource type="Gradient" id="Gradient_7uwyn"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5hnoo"]
+gradient = SubResource("Gradient_7uwyn")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="GodList" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gnvf2")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_5hnoo")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 5.0
+offset_right = -4.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+
+[node name="Orisis" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("1_onedv")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Orisis"]
+layout_mode = 2
+texture = ExtResource("1_7xj24")
+
+[node name="Label" type="Label" parent="VBoxContainer/Orisis"]
+layout_mode = 2
+text = "Osiris"
+
+[node name="Ra" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("1_onedv")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Ra"]
+layout_mode = 2
+texture = ExtResource("1_7xj24")
+
+[node name="Label" type="Label" parent="VBoxContainer/Ra"]
+layout_mode = 2
+text = "Ra
+"
+
+[node name="Cursor" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_7xj24")

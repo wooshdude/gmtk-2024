@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_jtuc4")
-weight = 0
-constellation = 0
-trade = 0
-belongings = 0
+weight = 3
+constellation = 3
+trade = 3
+wealth = 2
+belongings = 2

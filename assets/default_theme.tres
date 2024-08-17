@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dnk0uqvjlp3v0"]
+
+[ext_resource type="FontFile" uid="uid://deuvnxihu7d2v" path="res://assets/fonts/Scrambled_Eggs.ttf" id="1_2jkpb"]
+
+[resource]
+Button/fonts/font = ExtResource("1_2jkpb")
+Label/fonts/font = ExtResource("1_2jkpb")
+TabContainer/fonts/font = ExtResource("1_2jkpb")

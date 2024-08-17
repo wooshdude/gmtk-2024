@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=6 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
+[ext_resource type="Resource" uid="uid://dn7bxf43adnmf" path="res://scripts/systems/people/people_list.tres" id="2_e5y2o"]
+[ext_resource type="Theme" uid="uid://dnk0uqvjlp3v0" path="res://assets/default_theme.tres" id="3_71q6f"]
+[ext_resource type="PackedScene" uid="uid://3mcrgihku5cu" path="res://scripts/ui/god_list.tscn" id="5_vsu0u"]
 
 [node name="Desk" type="Node2D"]
 script = ExtResource("1_kqsai")
+people_list = ExtResource("2_e5y2o")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -15,23 +19,63 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_71q6f")
 script = ExtResource("2_4086j")
 
-[node name="GoodButton" type="Button" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 1055.0
-offset_top = 359.0
-offset_right = 1132.0
-offset_bottom = 426.0
-text = "good soul"
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 10
 
-[node name="BadButton" type="Button" parent="CanvasLayer/Control"]
-layout_mode = 0
-offset_left = 1056.0
-offset_top = 448.0
-offset_right = 1138.0
-offset_bottom = 512.0
-text = "bad soul"
+[node name="Book" type="Control" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
 
-[connection signal="button_down" from="CanvasLayer/Control/GoodButton" to="." method="_on_good_button_button_down"]
-[connection signal="button_down" from="CanvasLayer/Control/BadButton" to="." method="_on_bad_button_button_down"]
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control/MarginContainer/Book"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 1
+
+[node name="Gods" parent="CanvasLayer/Control/MarginContainer/Book/TabContainer" instance=ExtResource("5_vsu0u")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="Info" type="Control" parent="CanvasLayer/Control/MarginContainer/Book/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control/MarginContainer/Book/TabContainer/Info"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+current_tab = 0
+
+[node name="Signs" type="Control" parent="CanvasLayer/Control/MarginContainer/Book/TabContainer/Info/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ShowBook" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 143.0
+offset_right = 158.0
+offset_bottom = 183.0
+text = "Book"
+
+[connection signal="mouse_entered" from="CanvasLayer/Control/MarginContainer/Book" to="CanvasLayer/Control" method="_on_book_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Control/MarginContainer/Book" to="CanvasLayer/Control" method="_on_book_mouse_exited"]
+[connection signal="button_down" from="CanvasLayer/Control/ShowBook" to="CanvasLayer/Control" method="_on_show_book_button_down"]

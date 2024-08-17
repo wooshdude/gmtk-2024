@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="gmtk 2024"
+config/tags=PackedStringArray("jam")
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -18,6 +19,18 @@ config/icon="res://icon.svg"
 
 GlobalSignals="*res://scripts/global/global_signals.gd"
 
+[display]
+
+window/size/viewport_width=384
+window/size/viewport_height=216
+window/size/window_width_override=1152
+window/size/window_height_override=648
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/script-ide/plugin.cfg")
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
