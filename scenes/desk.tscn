@@ -1,14 +1,58 @@
-[gd_scene load_steps=6 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=22 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
 [ext_resource type="Resource" uid="uid://dn7bxf43adnmf" path="res://scripts/systems/people/people_list.tres" id="2_e5y2o"]
 [ext_resource type="Theme" uid="uid://dnk0uqvjlp3v0" path="res://assets/default_theme.tres" id="3_71q6f"]
+[ext_resource type="Texture2D" uid="uid://f4gosgl7l15e" path="res://assets/sprites/scale1.png" id="3_x72wf"]
+[ext_resource type="Texture2D" uid="uid://tvw8woyr8x0v" path="res://assets/sprites/background1.png" id="3_ywjfx"]
 [ext_resource type="PackedScene" uid="uid://3mcrgihku5cu" path="res://scripts/ui/god_list.tscn" id="5_vsu0u"]
+[ext_resource type="Texture2D" uid="uid://cvndvpuqaq6ax" path="res://assets/sprites/desk1.png" id="6_tnd2v"]
+[ext_resource type="Texture2D" uid="uid://b6marijgfju2o" path="res://assets/sprites/flashlight1.png" id="6_yj0g3"]
+[ext_resource type="Texture2D" uid="uid://dhy1xc1h72h4w" path="res://assets/sprites/book1.png" id="7_5fw88"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64xtm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mq2yi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s1wh6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xxciu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tyu0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ypiay"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sha1b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p17ff"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_p62b6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rf57u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16ku5"]
 
 [node name="Desk" type="Node2D"]
 script = ExtResource("1_kqsai")
 people_list = ExtResource("2_e5y2o")
+
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -2
+texture = ExtResource("3_ywjfx")
+centered = false
+
+[node name="Desk" type="Sprite2D" parent="."]
+texture = ExtResource("6_tnd2v")
+centered = false
+
+[node name="Scale" type="Sprite2D" parent="."]
+position = Vector2(36, 110)
+texture = ExtResource("3_x72wf")
+
+[node name="Flashlight" type="Sprite2D" parent="."]
+position = Vector2(97, 157)
+texture = ExtResource("6_yj0g3")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -24,13 +68,36 @@ script = ExtResource("2_4086j")
 
 [node name="ShowBook" type="Button" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 118.0
-offset_top = 143.0
-offset_right = 171.0
-offset_bottom = 183.0
-text = "Book"
+offset_left = 127.0
+offset_top = 117.0
+offset_right = 184.0
+offset_bottom = 194.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_64xtm")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_mq2yi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_s1wh6")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_xxciu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_7tyu0")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ypiay")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_sha1b")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_p17ff")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_p62b6")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rf57u")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_16ku5")
+flat = true
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ShowBook"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_5fw88")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+visible = false
+z_index = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

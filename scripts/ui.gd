@@ -10,6 +10,7 @@ var mouse_inside_book:bool
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	book.position.y = get_viewport_rect().size.y
+	book.show()
 
 
 func _on_show_book_button_down() -> void:
