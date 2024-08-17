@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl7qqnbd7d3kd"]
-
-[ext_resource type="Script" path="res://scripts/ui/mask.gd" id="1_4cwes"]
-
-[node name="Mask" type="CanvasGroup"]
-script = ExtResource("1_4cwes")
