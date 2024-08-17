@@ -15,7 +15,6 @@ xray = NodePath("CanvasLayer/Xray")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Xray" type="Node2D" parent="CanvasLayer"]
-unique_name_in_owner = true
 script = ExtResource("3_pg3xk")
 
 [node name="Control" type="Control" parent="CanvasLayer"]
