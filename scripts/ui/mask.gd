@@ -1,6 +1,5 @@
 extends Sprite2D
-
-var elapsed = 0
+@onready var person: PersonNode = $"../../.." # Kill me please...
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -9,7 +8,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	elapsed = wrap(elapsed + delta, 0, 2*PI)
-	var breath = remap(sin(elapsed*2), -1, 1, 1.0, 1.2)
-	scale = Vector2.ONE * breath
-	material.set_shader_parameter("offset", get_local_mouse_position()/texture.get_size())
+	to_local(person.xray.global_position)
+	material.set_shader_parameter("offset", to_local(person.xray.global_position)/texture.get_size())
+	material.set_shader_parameter("scale", person.xray.scale * scale)
+	material.set_shader_parameter("angle", person.xray.rotation - rotation)

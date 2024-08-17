@@ -2,6 +2,7 @@ extends Node2D
 
 const PERSON = preload("res://scenes/person.tscn")
 @export var people_list:PeopleList
+@export var xray:Node2D
 
 var current_person:PersonNode
 
@@ -21,6 +22,8 @@ func _on_next_person():
 	var new_person := PERSON.instantiate()
 	var new_person_data := people_list.get_next_person()
 	new_person.person_data = new_person_data
+	new_person.xray = xray
+	
 	
 	self.add_child(new_person)
 	current_person = new_person
