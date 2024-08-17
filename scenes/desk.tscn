@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
 [ext_resource type="Resource" uid="uid://dn7bxf43adnmf" path="res://scripts/systems/people/people_list.tres" id="2_e5y2o"]
 [ext_resource type="Theme" uid="uid://dnk0uqvjlp3v0" path="res://assets/default_theme.tres" id="3_71q6f"]
-[ext_resource type="Script" path="res://scripts/ui/xray_transform.gd" id="3_pg3xk"]
+[ext_resource type="Script" path="res://scripts/ui/xray/xray_transform.gd" id="3_pg3xk"]
 [ext_resource type="PackedScene" uid="uid://3mcrgihku5cu" path="res://scripts/ui/god_list.tscn" id="5_vsu0u"]
 
 [node name="Desk" type="Node2D" node_paths=PackedStringArray("xray")]

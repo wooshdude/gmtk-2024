@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c4atpvk17aj7f" path="res://assets/sprites/xray_mask.png" id="6_kgptw"]
 [ext_resource type="Texture2D" uid="uid://2i77imyvxtvo" path="res://assets/sprites/temp_const.png" id="6_p4egd"]
 [ext_resource type="Script" path="res://scripts/ui/constellation_node.gd" id="7_878vq"]
-[ext_resource type="Script" path="res://scripts/ui/mask.gd" id="7_ynoux"]
+[ext_resource type="Script" path="res://scripts/ui/xray/mask.gd" id="7_ynoux"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_froxh"]
 shader = ExtResource("3_l6jnw")
@@ -36,7 +36,7 @@ texture = ExtResource("2_uextd")
 script = ExtResource("3_6f1ub")
 
 [node name="XrayInsides" type="BackBufferCopy" parent="PersonCopy"]
-copy_mode = 2
+copy_mode = 0
 
 [node name="XrayBG" type="TextureRect" parent="PersonCopy/XrayInsides"]
 texture_repeat = 2
