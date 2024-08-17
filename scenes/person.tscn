@@ -1,11 +1,68 @@
-[gd_scene load_steps=3 format=3 uid="uid://cagsgtgpfoobg"]
+[gd_scene load_steps=13 format=3 uid="uid://cagsgtgpfoobg"]
 
 [ext_resource type="Script" path="res://scripts/systems/people/person_node.gd" id="1_2xjdu"]
 [ext_resource type="Texture2D" uid="uid://dm4t8i4wba251" path="res://icon.svg" id="2_uextd"]
+[ext_resource type="Script" path="res://scripts/ui/person_copy.gd" id="3_6f1ub"]
+[ext_resource type="Shader" path="res://assets/shaders/scroll_bg.gdshader" id="3_l6jnw"]
+[ext_resource type="Texture2D" uid="uid://t26e7yl34u5e" path="res://assets/sprites/xray_tile.png" id="4_wod1j"]
+[ext_resource type="Shader" path="res://assets/shaders/mask.gdshader" id="5_6yk2f"]
+[ext_resource type="SpriteFrames" uid="uid://b3850dvyfs3x" path="res://assets/sprites/constellations.tres" id="6_4u6xm"]
+[ext_resource type="Texture2D" uid="uid://c4atpvk17aj7f" path="res://assets/sprites/xray_mask.png" id="6_kgptw"]
+[ext_resource type="Script" path="res://scripts/ui/constellation_node.gd" id="7_878vq"]
+[ext_resource type="Script" path="res://scripts/ui/xray/mask.gd" id="7_ynoux"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_froxh"]
+shader = ExtResource("3_l6jnw")
+shader_parameter/speed = 0.3
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/offset = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2gagq"]
+shader = ExtResource("5_6yk2f")
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/angle = 0.0
 
 [node name="Person" type="Node2D"]
 z_index = -1
 script = ExtResource("1_2xjdu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="PersonTexture" type="Sprite2D" parent="."]
+clip_children = 2
 texture = ExtResource("2_uextd")
+
+[node name="PersonCopy" type="Sprite2D" parent="."]
+clip_children = 2
+texture = ExtResource("2_uextd")
+script = ExtResource("3_6f1ub")
+
+[node name="XrayInsides" type="BackBufferCopy" parent="PersonCopy"]
+copy_mode = 0
+
+[node name="XrayBG" type="TextureRect" parent="PersonCopy/XrayInsides"]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_froxh")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -116.0
+offset_top = -116.0
+offset_right = -84.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_wod1j")
+stretch_mode = 1
+
+[node name="Const" type="AnimatedSprite2D" parent="PersonCopy/XrayInsides"]
+modulate = Color(0.384365, 0.819491, 0.719755, 1)
+scale = Vector2(1.53, 1.53)
+sprite_frames = ExtResource("6_4u6xm")
+script = ExtResource("7_878vq")
+
+[node name="Mask" type="Sprite2D" parent="PersonCopy/XrayInsides"]
+material = SubResource("ShaderMaterial_2gagq")
+texture = ExtResource("6_kgptw")
+script = ExtResource("7_ynoux")

@@ -1,6 +1,7 @@
 extends Node2D
 class_name PersonNode
 
+var xray:Node2D
 
 var person_data:Person :
 	set(value):
