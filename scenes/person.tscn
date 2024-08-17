@@ -23,7 +23,6 @@ shader_parameter/offset = null
 script = ExtResource("1_2xjdu")
 
 [node name="PersonTexture" type="Sprite2D" parent="."]
-visible = false
 clip_children = 2
 texture = ExtResource("2_uextd")
 
@@ -33,7 +32,6 @@ texture = ExtResource("2_uextd")
 script = ExtResource("3_6f1ub")
 
 [node name="XrayInsides" type="BackBufferCopy" parent="PersonCopy"]
-visible = false
 copy_mode = 2
 
 [node name="XrayBG" type="TextureRect" parent="PersonCopy/XrayInsides"]
