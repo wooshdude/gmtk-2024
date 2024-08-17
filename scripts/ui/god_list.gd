@@ -1,5 +1,7 @@
 extends Control
 
+signal god_selected(string)
+
 @onready var cursor: TextureRect = $Cursor
 @onready var god_list: VBoxContainer = $VBoxContainer
 
@@ -17,12 +19,14 @@ func _ready():
 
 func _on_god_clicked(button:GodButton):
 	print(button.name)
+	god_selected.emit(button.name)
 
 
 func _on_god_hovered(button:GodButton):
 	var new_tween := create_tween()
 	if not cursor.visible:
 		cursor.show()
+		cursor.modulate = Color(1,1,1,0)
 		new_tween.tween_property(cursor, "modulate", Color(1,1,1,1), 0.1).set_trans(Tween.TRANS_SINE)
 	new_tween.tween_property(cursor, "position", button.position + Vector2(size.x - cursor.size.x, 0), 0.1).set_trans(Tween.TRANS_SINE)
 

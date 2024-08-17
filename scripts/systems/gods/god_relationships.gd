@@ -9,11 +9,9 @@ enum Need {
 	PURITY
 }
 
-enum Gods {
-	RA,
-	OSIRIS,
-	AMMIT
-}
+static var RA = "Ra"
+static var ORISIS = "Orisis"
+static var SAVATHUN = "Savathun"
 
 class God:
 	var name:String

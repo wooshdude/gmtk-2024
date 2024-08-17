@@ -22,6 +22,14 @@ grow_vertical = 2
 theme = ExtResource("3_71q6f")
 script = ExtResource("2_4086j")
 
+[node name="ShowBook" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 143.0
+offset_right = 171.0
+offset_bottom = 183.0
+text = "Book"
+
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 15
@@ -44,14 +52,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 1
+current_tab = 0
 
 [node name="Gods" parent="CanvasLayer/Control/MarginContainer/Book/TabContainer" instance=ExtResource("5_vsu0u")]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="Info" type="Control" parent="CanvasLayer/Control/MarginContainer/Book/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -68,14 +76,15 @@ current_tab = 0
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="ShowBook" type="Button" parent="CanvasLayer/Control"]
+[node name="Close" type="Button" parent="CanvasLayer/Control/MarginContainer/Book"]
 layout_mode = 0
-offset_left = 118.0
-offset_top = 143.0
-offset_right = 158.0
-offset_bottom = 183.0
-text = "Book"
+offset_left = 311.0
+offset_top = -2.0
+offset_right = 333.0
+offset_bottom = 26.0
+text = "X"
 
-[connection signal="mouse_entered" from="CanvasLayer/Control/MarginContainer/Book" to="CanvasLayer/Control" method="_on_book_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Control/MarginContainer/Book" to="CanvasLayer/Control" method="_on_book_mouse_exited"]
 [connection signal="button_down" from="CanvasLayer/Control/ShowBook" to="CanvasLayer/Control" method="_on_show_book_button_down"]
+[connection signal="god_selected" from="CanvasLayer/Control/MarginContainer/Book/TabContainer/Gods" to="." method="_on_gods_god_selected"]
+[connection signal="god_selected" from="CanvasLayer/Control/MarginContainer/Book/TabContainer/Gods" to="CanvasLayer/Control" method="_on_gods_god_selected"]
+[connection signal="button_down" from="CanvasLayer/Control/MarginContainer/Book/Close" to="CanvasLayer/Control" method="_on_close_button_down"]

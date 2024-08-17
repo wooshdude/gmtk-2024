@@ -26,9 +26,5 @@ func _on_next_person():
 	current_person = new_person
 
 
-func _on_good_button_button_down() -> void:
-	GlobalSignals.next_person.emit()
-
-
-func _on_bad_button_button_down() -> void:
+func _on_gods_god_selected(name) -> void:
 	GlobalSignals.next_person.emit()
