@@ -1,5 +1,6 @@
 extends Sprite2D
 
+var elapsed = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -8,4 +9,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	material.set_shader_parameter("offset", get_local_mouse_position()/texture.get_size() * scale)
+	elapsed = wrap(elapsed + delta, 0, 2*PI)
+	var breath = remap(sin(elapsed*2), -1, 1, 1.0, 1.2)
+	scale = Vector2.ONE * breath
+	material.set_shader_parameter("offset", get_local_mouse_position()/texture.get_size())
