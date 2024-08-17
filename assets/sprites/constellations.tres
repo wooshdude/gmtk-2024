@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://b3850dvyfs3x"]
+
+[ext_resource type="Texture2D" uid="uid://2i77imyvxtvo" path="res://assets/sprites/temp_const.png" id="1_nfc4q"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nfc4q")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]

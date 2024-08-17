@@ -11,13 +11,14 @@ void vertex() {
 	
 	float cosA = cos(angle);
 	float sinA = sin(angle);
+	mat2 transformMatrix = mat2(vec2(cosA, -sinA), vec2(sinA,  cosA));
 	
-	UV = mat2(vec2(cosA, -sinA), vec2(sinA,  cosA)) * UV;
-	UV *= scale;
+	UV = transformMatrix * UV;
+	UV /= scale;
 	
 	UV += vec2(0.5);
 	
-	UV -= offset;
+	UV -= (mat2(vec2(cosA, -sinA), vec2(sinA,  cosA)) *offset)/scale;
 }
 
 void fragment() {

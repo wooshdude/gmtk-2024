@@ -9,7 +9,8 @@ func _ready() -> void:
 	person_texture.texture_changed.connect(_on_texture_changed)
 	
 func _process(delta: float) -> void:
-	xray_insides.visible = not person.xray.disabled
+	if person.xray is Node2D:
+		xray_insides.visible = not person.xray.disabled
 
 func _on_texture_changed():
 	texture = person_texture.texture

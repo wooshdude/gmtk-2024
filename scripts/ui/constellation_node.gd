@@ -1,4 +1,4 @@
-extends Sprite2D
+extends AnimatedSprite2D
 
 var elapsed = 0
 
@@ -6,9 +6,10 @@ var elapsed = 0
 func _process(delta: float) -> void:
 	# Animation stuff
 	elapsed = wrap(elapsed + delta, 0, 2*PI)
-	var wave = sin(elapsed*2)
-	var wave2 = sin(elapsed*2 + PI/2)
-	var wave3 = remap(cos(elapsed*3 + PI/3), -1, 1, 0.2, 0.7)
-	skew = wave * PI/12
-	offset.x = wave2
-	modulate.a = wave3
+	var skew_wave = sin(elapsed*2)
+	var offset_x_wave = sin(elapsed*2 + PI/2)
+	var offset_y_wave = sin(elapsed*14)
+	var opacity_wave = remap(cos(elapsed*3 + PI/3), -1, 1, 0.2, 0.7)
+	skew = skew_wave * PI/12
+	offset = Vector2(offset_x_wave, offset_y_wave * 0.4)
+	modulate.a = opacity_wave

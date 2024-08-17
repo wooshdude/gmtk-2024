@@ -6,8 +6,8 @@
 [ext_resource type="Shader" path="res://assets/shaders/scroll_bg.gdshader" id="3_l6jnw"]
 [ext_resource type="Texture2D" uid="uid://t26e7yl34u5e" path="res://assets/sprites/xray_tile.png" id="4_wod1j"]
 [ext_resource type="Shader" path="res://assets/shaders/mask.gdshader" id="5_6yk2f"]
+[ext_resource type="SpriteFrames" uid="uid://b3850dvyfs3x" path="res://assets/sprites/constellations.tres" id="6_4u6xm"]
 [ext_resource type="Texture2D" uid="uid://c4atpvk17aj7f" path="res://assets/sprites/xray_mask.png" id="6_kgptw"]
-[ext_resource type="Texture2D" uid="uid://2i77imyvxtvo" path="res://assets/sprites/temp_const.png" id="6_p4egd"]
 [ext_resource type="Script" path="res://scripts/ui/constellation_node.gd" id="7_878vq"]
 [ext_resource type="Script" path="res://scripts/ui/xray/mask.gd" id="7_ynoux"]
 
@@ -19,9 +19,9 @@ shader_parameter/offset = null
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_2gagq"]
 shader = ExtResource("5_6yk2f")
-shader_parameter/offset = null
+shader_parameter/offset = Vector2(0, 0)
 shader_parameter/scale = Vector2(1, 1)
-shader_parameter/angle = null
+shader_parameter/angle = 0.0
 
 [node name="Person" type="Node2D"]
 script = ExtResource("1_2xjdu")
@@ -55,10 +55,10 @@ grow_vertical = 2
 texture = ExtResource("4_wod1j")
 stretch_mode = 1
 
-[node name="Const" type="Sprite2D" parent="PersonCopy/XrayInsides"]
+[node name="Const" type="AnimatedSprite2D" parent="PersonCopy/XrayInsides"]
 modulate = Color(0.384365, 0.819491, 0.719755, 1)
 scale = Vector2(1.53, 1.53)
-texture = ExtResource("6_p4egd")
+sprite_frames = ExtResource("6_4u6xm")
 script = ExtResource("7_878vq")
 
 [node name="Mask" type="Sprite2D" parent="PersonCopy/XrayInsides"]

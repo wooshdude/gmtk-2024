@@ -24,7 +24,6 @@ func _on_next_person():
 	new_person.person_data = new_person_data
 	new_person.xray = xray
 	
-	
 	self.add_child(new_person)
 	current_person = new_person
 
