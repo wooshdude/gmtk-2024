@@ -1,11 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=30 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
 [ext_resource type="Resource" uid="uid://dn7bxf43adnmf" path="res://scripts/systems/people/people_list.tres" id="2_e5y2o"]
 [ext_resource type="Theme" uid="uid://dnk0uqvjlp3v0" path="res://assets/default_theme.tres" id="3_71q6f"]
-[ext_resource type="Texture2D" uid="uid://f4gosgl7l15e" path="res://assets/sprites/scale1.png" id="3_x72wf"]
 [ext_resource type="Texture2D" uid="uid://tvw8woyr8x0v" path="res://assets/sprites/background1.png" id="3_ywjfx"]
+[ext_resource type="Texture2D" uid="uid://cnkah85th3pah" path="res://assets/sprites/scale/base.png" id="5_qrmuc"]
 [ext_resource type="PackedScene" uid="uid://3mcrgihku5cu" path="res://scripts/ui/god_list.tscn" id="5_vsu0u"]
 [ext_resource type="Script" path="res://scripts/ui/scale.gd" id="6_is8gj"]
 [ext_resource type="Texture2D" uid="uid://cvndvpuqaq6ax" path="res://assets/sprites/desk1.png" id="6_tnd2v"]
@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://c16d4p14olnf3" path="res://assets/sprites/scale/cup_2.png" id="8_u5i0x"]
 [ext_resource type="Texture2D" uid="uid://q6aejrqu8g15" path="res://assets/sprites/scale/cup_1.png" id="9_nrywn"]
 [ext_resource type="Script" path="res://scripts/ui/xray/xray_transform.gd" id="12_q4x0c"]
+
+[sub_resource type="Curve" id="Curve_28tkt"]
+_data = [Vector2(0.0368421, 0.0879121), 0.0, 2.19363, 0, 1, Vector2(0.452632, 1), 1.24281, 1.24281, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Curve2D" id="Curve2D_kf21s"]
 _data = {
@@ -63,8 +67,9 @@ centered = false
 
 [node name="Scale" type="Sprite2D" parent="."]
 position = Vector2(36, 110)
-texture = ExtResource("3_x72wf")
+texture = ExtResource("5_qrmuc")
 script = ExtResource("6_is8gj")
+fall_curve = SubResource("Curve_28tkt")
 
 [node name="HeartCup" type="Node2D" parent="Scale"]
 position = Vector2(23, -17)
