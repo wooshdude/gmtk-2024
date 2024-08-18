@@ -5,7 +5,7 @@
 
 [sub_resource type="Resource" id="Resource_16kq3"]
 script = ExtResource("1_720wt")
-weight = 2
+weight = 2.0
 constellation = 2
 trade = 1
 wealth = 6
@@ -13,7 +13,7 @@ belongings = 2
 
 [sub_resource type="Resource" id="Resource_j7ane"]
 script = ExtResource("1_720wt")
-weight = 2
+weight = -0.5
 constellation = 4
 trade = 0
 wealth = 2
@@ -21,7 +21,7 @@ belongings = 1
 
 [sub_resource type="Resource" id="Resource_4wodv"]
 script = ExtResource("1_720wt")
-weight = 5
+weight = 0.9
 constellation = 3
 trade = 2
 wealth = 4

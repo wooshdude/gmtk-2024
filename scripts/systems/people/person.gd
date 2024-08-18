@@ -40,7 +40,7 @@ var Texture_Ref:Array = [
 	[25, 26, 27]
 ]
 
-@export var weight:int
+@export var weight:float
 @export var constellation:Constellation
 @export var trade:Trade
 @export var wealth:int

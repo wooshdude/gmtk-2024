@@ -10,7 +10,7 @@ enum ItemType { HEART, BELONGING, MEMO, FLASHLIGHT }
 var hovered = false
 var grabbed = false
 @export var disabled = false
-@export var weight = 1.0
+@export var weight = 1
 var square_distance
 
 

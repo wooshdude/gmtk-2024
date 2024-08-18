@@ -71,9 +71,6 @@ texture = ExtResource("5_qrmuc")
 script = ExtResource("6_is8gj")
 fall_curve = SubResource("Curve_28tkt")
 
-[node name="HeartCup" type="Node2D" parent="Scale"]
-position = Vector2(23, -17)
-
 [node name="Fulcrum" type="Sprite2D" parent="Scale"]
 position = Vector2(0, -43)
 texture = ExtResource("7_3yeg2")
@@ -83,6 +80,9 @@ offset = Vector2(0, -2)
 position = Vector2(23, -1)
 texture = ExtResource("8_u5i0x")
 offset = Vector2(0, 15)
+
+[node name="HeartCup" type="Node2D" parent="Scale/Fulcrum/CupR"]
+position = Vector2(0, 27)
 
 [node name="CupL" type="Sprite2D" parent="Scale/Fulcrum"]
 position = Vector2(-25, -1)

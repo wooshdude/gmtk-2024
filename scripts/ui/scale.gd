@@ -1,7 +1,7 @@
 extends Sprite2D
 class_name AnimatedScale
 @onready var fulcrum: Sprite2D = $Fulcrum
-@onready var heart_cup: Node2D = $Fulcrum/cup_R/HeartCup
+@onready var heart_cup: Node2D = $Fulcrum/CupR/HeartCup
 @export var fall_curve: Curve
 var weighing = false
 var tween:Tween
@@ -19,13 +19,12 @@ func _process(delta: float) -> void:
 	if not check_hovered(): return
 	if not check_hovered().grabbed:
 		var o = check_hovered()
-		print(o)
 		o.global_position = lerp(o.global_position, heart_cup.global_position, 0.1)
 		if not weighing:
 			weighing = true
 			if !!tween: tween.stop() 
 			tween = create_tween()
-			tween.tween_property(fulcrum, "rotation", atan(1/o.weight), 1).set_ease(Tween.EASE_OUT).set_custom_interpolator(fall_curve.sample)
+			tween.tween_property(fulcrum, "rotation", atan(o.weight), 1).set_ease(Tween.EASE_OUT).set_custom_interpolator(fall_curve.sample)
 	elif weighing:
 		weighing = false
 		if !!tween: tween.stop() 

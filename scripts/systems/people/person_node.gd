@@ -32,6 +32,7 @@ func display_items():
 	var new_heart = create_draggable()
 	new_heart.texture = load("res://assets/sprites/animated_heart/animated_heart.tres")
 	new_heart.type = Draggable.ItemType.HEART
+	new_heart.weight = person_data.weight
 	add_child(new_heart)
 		
 
