@@ -21,7 +21,7 @@ var request_completed = false
 
 func _ready():
 	super()
-	self.type = objects.MEMO
+	self.type = ItemType.MEMO
 	#TODO ADD SPAWN IN SFX
 	request_timeout()
 	print(request)

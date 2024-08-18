@@ -29,4 +29,4 @@ func _on_next_person():
 
 
 func _on_gods_god_selected(name) -> void:
-	GlobalSignals.next_person.emit()
+	GlobalSignals.dismiss.emit()

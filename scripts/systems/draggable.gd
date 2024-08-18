@@ -4,8 +4,8 @@ class_name Draggable
 @export var return_when_dropped:bool = false
 var start_position
 
-enum objects { HEART, BELONGING, MEMO, FLASHLIGHT }
-@export var type : objects
+enum ItemType { HEART, BELONGING, MEMO, FLASHLIGHT }
+@export var type : ItemType
 
 var hovered = false
 var grabbed = false
@@ -36,9 +36,11 @@ func drag():
 	if self.hovered and Input.is_action_just_pressed("CLICK"):
 		if GrabManager.check_can_drag(self):
 			grabbed = true
+			#GrabManager.grabbed_object = self
 		#TODO ADD SFX
 	if self.grabbed and Input.is_action_just_released("CLICK"):
 		grabbed = false
+		#GrabManager.grabbed_object = null
 		#TODO ADD SFX
 
 

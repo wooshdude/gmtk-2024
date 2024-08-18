@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=26 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://f4gosgl7l15e" path="res://assets/sprites/scale1.png" id="3_x72wf"]
 [ext_resource type="Texture2D" uid="uid://tvw8woyr8x0v" path="res://assets/sprites/background1.png" id="3_ywjfx"]
 [ext_resource type="PackedScene" uid="uid://3mcrgihku5cu" path="res://scripts/ui/god_list.tscn" id="5_vsu0u"]
+[ext_resource type="Script" path="res://scripts/scale.gd" id="6_te4c6"]
 [ext_resource type="Texture2D" uid="uid://cvndvpuqaq6ax" path="res://assets/sprites/desk1.png" id="6_tnd2v"]
 [ext_resource type="Texture2D" uid="uid://b6marijgfju2o" path="res://assets/sprites/flashlight1.png" id="6_yj0g3"]
 [ext_resource type="Texture2D" uid="uid://dhy1xc1h72h4w" path="res://assets/sprites/book1.png" id="7_5fw88"]
@@ -60,6 +61,10 @@ centered = false
 [node name="Scale" type="Sprite2D" parent="."]
 position = Vector2(36, 110)
 texture = ExtResource("3_x72wf")
+script = ExtResource("6_te4c6")
+
+[node name="HeartCup" type="Node2D" parent="Scale"]
+position = Vector2(23, -17)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_kf21s")
