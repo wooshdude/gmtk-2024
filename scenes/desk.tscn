@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=29 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
@@ -7,11 +7,14 @@
 [ext_resource type="Texture2D" uid="uid://f4gosgl7l15e" path="res://assets/sprites/scale1.png" id="3_x72wf"]
 [ext_resource type="Texture2D" uid="uid://tvw8woyr8x0v" path="res://assets/sprites/background1.png" id="3_ywjfx"]
 [ext_resource type="PackedScene" uid="uid://3mcrgihku5cu" path="res://scripts/ui/god_list.tscn" id="5_vsu0u"]
-[ext_resource type="Script" path="res://scripts/scale.gd" id="6_te4c6"]
+[ext_resource type="Script" path="res://scripts/ui/scale.gd" id="6_is8gj"]
 [ext_resource type="Texture2D" uid="uid://cvndvpuqaq6ax" path="res://assets/sprites/desk1.png" id="6_tnd2v"]
 [ext_resource type="Texture2D" uid="uid://b6marijgfju2o" path="res://assets/sprites/flashlight1.png" id="6_yj0g3"]
+[ext_resource type="Texture2D" uid="uid://0iwtds8bjsw8" path="res://assets/sprites/scale/fulcrum.png" id="7_3yeg2"]
 [ext_resource type="Texture2D" uid="uid://dhy1xc1h72h4w" path="res://assets/sprites/book1.png" id="7_5fw88"]
 [ext_resource type="Script" path="res://scripts/systems/draggable.gd" id="7_l0jto"]
+[ext_resource type="Texture2D" uid="uid://c16d4p14olnf3" path="res://assets/sprites/scale/cup_2.png" id="8_u5i0x"]
+[ext_resource type="Texture2D" uid="uid://q6aejrqu8g15" path="res://assets/sprites/scale/cup_1.png" id="9_nrywn"]
 [ext_resource type="Script" path="res://scripts/ui/xray/xray_transform.gd" id="12_q4x0c"]
 
 [sub_resource type="Curve2D" id="Curve2D_kf21s"]
@@ -61,10 +64,25 @@ centered = false
 [node name="Scale" type="Sprite2D" parent="."]
 position = Vector2(36, 110)
 texture = ExtResource("3_x72wf")
-script = ExtResource("6_te4c6")
+script = ExtResource("6_is8gj")
 
 [node name="HeartCup" type="Node2D" parent="Scale"]
 position = Vector2(23, -17)
+
+[node name="Fulcrum" type="Sprite2D" parent="Scale"]
+position = Vector2(0, -43)
+texture = ExtResource("7_3yeg2")
+offset = Vector2(0, -2)
+
+[node name="CupR" type="Sprite2D" parent="Scale/Fulcrum"]
+position = Vector2(23, -1)
+texture = ExtResource("8_u5i0x")
+offset = Vector2(0, 15)
+
+[node name="CupL" type="Sprite2D" parent="Scale/Fulcrum"]
+position = Vector2(-25, -1)
+texture = ExtResource("9_nrywn")
+offset = Vector2(0, 15)
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_kf21s")

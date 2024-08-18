@@ -1,0 +1,26 @@
+[gd_resource type="AnimatedTexture" load_steps=8 format=3 uid="uid://bpatk5hh6excy"]
+
+[ext_resource type="Texture2D" uid="uid://cjn0q2jl1dvv2" path="res://assets/sprites/animated_heart/heart_1.png" id="1_2argd"]
+[ext_resource type="Texture2D" uid="uid://b52g40j1g2swj" path="res://assets/sprites/animated_heart/heart_2.png" id="2_nwp4e"]
+[ext_resource type="Texture2D" uid="uid://c2sm7hf2ljs2e" path="res://assets/sprites/animated_heart/heart_3.png" id="3_gg64e"]
+[ext_resource type="Texture2D" uid="uid://bj407v53j6dlm" path="res://assets/sprites/animated_heart/heart_4.png" id="4_n4ug7"]
+[ext_resource type="Texture2D" uid="uid://cxoqd35ht2x18" path="res://assets/sprites/animated_heart/heart_5.png" id="5_0u6pr"]
+[ext_resource type="Texture2D" uid="uid://d1dxe58i8wnst" path="res://assets/sprites/animated_heart/heart_6.png" id="6_bduq6"]
+[ext_resource type="Texture2D" uid="uid://ldp8x41qf36v" path="res://assets/sprites/animated_heart/heart_7.png" id="7_ai0cj"]
+
+[resource]
+frames = 7
+speed_scale = 10.0
+frame_0/texture = ExtResource("1_2argd")
+frame_1/texture = ExtResource("2_nwp4e")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_gg64e")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_n4ug7")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_0u6pr")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_bduq6")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_ai0cj")
+frame_6/duration = 1.0

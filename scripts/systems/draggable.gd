@@ -9,6 +9,9 @@ enum ItemType { HEART, BELONGING, MEMO, FLASHLIGHT }
 
 var hovered = false
 var grabbed = false
+@export var disabled = false
+@export var weight = 1.0
+var square_distance
 
 
 func _ready() -> void:
@@ -18,6 +21,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
+	square_distance = (get_global_mouse_position() - global_position).length_squared()
 	drag()
 	check_hovered()
 	#print(hovered)

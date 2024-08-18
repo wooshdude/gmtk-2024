@@ -7,7 +7,7 @@
 [ext_resource type="Shader" path="res://assets/shaders/scroll_bg.gdshader" id="3_l6jnw"]
 [ext_resource type="Texture2D" uid="uid://t26e7yl34u5e" path="res://assets/sprites/xray_tile.png" id="4_wod1j"]
 [ext_resource type="Shader" path="res://assets/shaders/mask.gdshader" id="5_6yk2f"]
-[ext_resource type="SpriteFrames" path="res://assets/sprites/constellations.tres" id="6_4u6xm"]
+[ext_resource type="SpriteFrames" uid="uid://b3850dvyfs3x" path="res://assets/sprites/constellations.tres" id="6_4u6xm"]
 [ext_resource type="Texture2D" uid="uid://c4atpvk17aj7f" path="res://assets/sprites/xray_mask.png" id="6_kgptw"]
 [ext_resource type="Script" path="res://scripts/ui/constellation_node.gd" id="7_878vq"]
 [ext_resource type="Script" path="res://scripts/ui/xray/mask.gd" id="7_ynoux"]

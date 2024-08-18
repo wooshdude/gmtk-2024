@@ -26,10 +26,11 @@ func display_items():
 	for i in range(person_data.belongings):
 		var new_item = create_draggable()
 		new_item.type = Draggable.ItemType.BELONGING
+		new_item.texture = load("res://assets/sprites/belongings/pick_up_" + str(person_data.Texture_Ref[person_data.trade][i]) + ".png")
 		add_child(new_item)
 	
 	var new_heart = create_draggable()
-	new_heart.texture = load("res://assets/sprites/heart1.png")
+	new_heart.texture = load("res://assets/sprites/animated_heart/animated_heart.tres")
 	new_heart.type = Draggable.ItemType.HEART
 	add_child(new_heart)
 		
