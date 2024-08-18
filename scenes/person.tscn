@@ -1,15 +1,107 @@
-[gd_scene load_steps=13 format=3 uid="uid://cagsgtgpfoobg"]
+[gd_scene load_steps=26 format=3 uid="uid://cagsgtgpfoobg"]
 
 [ext_resource type="Script" path="res://scripts/systems/people/person_node.gd" id="1_2xjdu"]
-[ext_resource type="Texture2D" uid="uid://dm4t8i4wba251" path="res://icon.svg" id="2_uextd"]
+[ext_resource type="Texture2D" uid="uid://cbc36gtkpa3bn" path="res://assets/sprites/silly guy blank-sheet.png" id="2_4elp4"]
 [ext_resource type="Script" path="res://scripts/ui/person_copy.gd" id="3_6f1ub"]
 [ext_resource type="Shader" path="res://assets/shaders/scroll_bg.gdshader" id="3_l6jnw"]
 [ext_resource type="Texture2D" uid="uid://t26e7yl34u5e" path="res://assets/sprites/xray_tile.png" id="4_wod1j"]
 [ext_resource type="Shader" path="res://assets/shaders/mask.gdshader" id="5_6yk2f"]
-[ext_resource type="SpriteFrames" uid="uid://b3850dvyfs3x" path="res://assets/sprites/constellations.tres" id="6_4u6xm"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/constellations.tres" id="6_4u6xm"]
 [ext_resource type="Texture2D" uid="uid://c4atpvk17aj7f" path="res://assets/sprites/xray_mask.png" id="6_kgptw"]
 [ext_resource type="Script" path="res://scripts/ui/constellation_node.gd" id="7_878vq"]
 [ext_resource type="Script" path="res://scripts/ui/xray/mask.gd" id="7_ynoux"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8t5g"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(0, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maylt"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(141, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vi57"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(282, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eadhe"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(423, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0xb1"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(564, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipauq"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(705, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk0fb"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(846, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmcar"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(987, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viev8"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(1128, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_78fda"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(1269, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0to51"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(1410, 0, 141, 195)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hx2i"]
+atlas = ExtResource("2_4elp4")
+region = Rect2(1551, 0, 141, 195)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tre03"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8t5g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maylt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vi57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eadhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0xb1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipauq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk0fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dmcar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viev8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_78fda")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0to51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hx2i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_froxh"]
 shader = ExtResource("3_l6jnw")
@@ -27,16 +119,19 @@ shader_parameter/angle = 0.0
 z_index = -1
 script = ExtResource("1_2xjdu")
 
-[node name="PersonTexture" type="Sprite2D" parent="."]
+[node name="PersonTexture" type="AnimatedSprite2D" parent="."]
 clip_children = 2
-texture = ExtResource("2_uextd")
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_tre03")
 
-[node name="PersonCopy" type="Sprite2D" parent="."]
+[node name="PersonCopy" type="AnimatedSprite2D" parent="."]
 clip_children = 2
-texture = ExtResource("2_uextd")
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_tre03")
 script = ExtResource("3_6f1ub")
 
 [node name="XrayInsides" type="BackBufferCopy" parent="PersonCopy"]
+position = Vector2(3, -11)
 copy_mode = 0
 
 [node name="XrayBG" type="TextureRect" parent="PersonCopy/XrayInsides"]
