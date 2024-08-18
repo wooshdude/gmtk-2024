@@ -142,10 +142,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -116.0
-offset_top = -116.0
-offset_right = -84.0
-offset_bottom = -84.0
+offset_left = -210.0
+offset_top = -210.0
+offset_right = 19.0
+offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_wod1j")
@@ -159,5 +159,7 @@ script = ExtResource("7_878vq")
 
 [node name="Mask" type="Sprite2D" parent="PersonCopy/XrayInsides"]
 material = SubResource("ShaderMaterial_2gagq")
+position = Vector2(2, 2)
+scale = Vector2(6, 6)
 texture = ExtResource("6_kgptw")
 script = ExtResource("7_ynoux")

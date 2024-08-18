@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=25 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
@@ -10,6 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://cvndvpuqaq6ax" path="res://assets/sprites/desk1.png" id="6_tnd2v"]
 [ext_resource type="Texture2D" uid="uid://b6marijgfju2o" path="res://assets/sprites/flashlight1.png" id="6_yj0g3"]
 [ext_resource type="Texture2D" uid="uid://dhy1xc1h72h4w" path="res://assets/sprites/book1.png" id="7_5fw88"]
+[ext_resource type="Script" path="res://scripts/systems/draggable.gd" id="7_l0jto"]
+[ext_resource type="Script" path="res://scripts/ui/xray/xray_transform.gd" id="12_q4x0c"]
+
+[sub_resource type="Curve2D" id="Curve2D_kf21s"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, -1.05112, 16.8179, 1.05112, -16.8179, -21, -24, -24.8064, 1.89202, 24.8064, -1.89202, 21, -58, -13.6646, -9.46008, 13.6646, 9.46008, 29, -28, -15.1361, -5.88628, 15.1361, 5.88628, 67, -49, -19.9713, -11.1419, 19.9713, 11.1419, 81, -15, 0, 0, 0, 0, 114, -30)
+}
+point_count = 7
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_64xtm"]
 
@@ -33,9 +41,12 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16ku5"]
 
-[node name="Desk" type="Node2D"]
+[node name="Desk" type="Node2D" node_paths=PackedStringArray("xray")]
 script = ExtResource("1_kqsai")
 people_list = ExtResource("2_e5y2o")
+xray = NodePath("Flashlight/Cursor")
+metadata/_edit_vertical_guides_ = [200.0, 350.0]
+metadata/_edit_horizontal_guides_ = [150.0, 118.0, 190.0]
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -2
@@ -50,9 +61,32 @@ centered = false
 position = Vector2(36, 110)
 texture = ExtResource("3_x72wf")
 
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_kf21s")
+
 [node name="Flashlight" type="Sprite2D" parent="."]
+z_index = 1
 position = Vector2(97, 157)
 texture = ExtResource("6_yj0g3")
+script = ExtResource("7_l0jto")
+return_when_dropped = true
+type = 3
+
+[node name="Cursor" type="Node2D" parent="Flashlight"]
+position = Vector2(-97, -157)
+script = ExtResource("12_q4x0c")
+
+[node name="Book" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 115.5
+offset_top = 107.5
+offset_right = 195.5
+offset_bottom = 203.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_5fw88")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -67,6 +101,7 @@ theme = ExtResource("3_71q6f")
 script = ExtResource("2_4086j")
 
 [node name="ShowBook" type="Button" parent="CanvasLayer/Control"]
+z_index = -1
 layout_mode = 0
 offset_left = 127.0
 offset_top = 117.0
@@ -85,15 +120,6 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rf57u")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_16ku5")
 flat = true
 metadata/_edit_group_ = true
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/ShowBook"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("7_5fw88")
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
 visible = false

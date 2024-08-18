@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://cwwm23v21b7lc"]
+
+[ext_resource type="Texture2D" uid="uid://ccowunj4abxsw" path="res://assets/sprites/old_parchment.jpg" id="1_qnkws"]
+[ext_resource type="Script" path="res://scripts/systems/memo.gd" id="2_7cels"]
+
+[sub_resource type="Gradient" id="Gradient_55467"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cn47y"]
+gradient = SubResource("Gradient_55467")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[node name="Memo" type="Sprite2D"]
+z_index = 1
+position = Vector2(-3.8147e-06, 7.62939e-06)
+scale = Vector2(0.032, 0.03)
+texture = ExtResource("1_qnkws")
+script = ExtResource("2_7cels")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -1000.0
+offset_top = -1367.0
+offset_right = -882.0
+offset_bottom = -1206.0
+scale = Vector2(16.995, 16.995)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -31.5
+offset_top = -31.5
+offset_right = -7.5
+offset_bottom = -7.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_cn47y")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control"]
+layout_mode = 2
+offset_top = 0.5
+offset_right = 119.0
+offset_bottom = 167.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "send me more balls men pronto!"
