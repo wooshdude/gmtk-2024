@@ -27,7 +27,7 @@ func _ready() -> void:
 	if pick_animation.has(self.type):
 		shadow = shadow_scene.instantiate()
 		add_child(shadow)
-		shadow.position.y += 3
+		shadow.global_position.y += 3
 	
 
 
@@ -40,10 +40,17 @@ func _physics_process(delta: float) -> void:
 
 func drag():
 	if grabbed and GrabManager.grabbed_object != self:
-		self.position = lerp(position, get_viewport().get_mouse_position(),0.3)
-		z_index = 2
+		var final_position = get_viewport().get_mouse_position()
+		if pick_animation.has(self.type) and self.type != ItemType.HEART:
+			final_position = get_viewport().get_mouse_position().clamp(GrabManager.get_confines_start(), GrabManager.get_confines_end())
+		self.position = lerp(position, final_position,0.3)
+		z_index = GrabManager.grab_z
+		if self.type == ItemType.HEART:
+			if Rect2(GrabManager.get_confines_start(),GrabManager.get_confines_size()).has_point(get_viewport().get_mouse_position()):
+				shadow.disabled = false
+			else: shadow.disabled = true
 	else:
-		z_index = 1   
+		z_index = GrabManager.drop_z
 		if return_when_dropped:
 			self.position = lerp(position, start_position,0.3)
 	

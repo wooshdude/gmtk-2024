@@ -2,6 +2,11 @@ extends Node
 # Grab Manager Singleton
 
 var grabbed_object:Draggable
+var confines:Sprite2D
+var drop_z = 2
+var grab_z = 4
+var last_grab_z = 3
+
 
 var objects:Array[Draggable] = []
 
@@ -10,6 +15,16 @@ func check_can_drag(object:Draggable) -> bool:
 		if (o.grabbed or o.square_distance < object.square_distance) and o != object:
 			return false
 	return true
+
+func get_confines_start():
+	return confines.position - confines.scale * confines.texture.get_size()/2
+
+func get_confines_end():
+	return confines.position + confines.scale * confines.texture.get_size()/2
+
+func get_confines_size():
+	return confines.scale * confines.texture.get_size()
+
 
 func add_object(object:Draggable):
 	if object not in objects:

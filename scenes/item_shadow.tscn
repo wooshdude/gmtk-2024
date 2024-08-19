@@ -10,6 +10,8 @@ shader_parameter/color = Color(0.0313726, 0.0901961, 0.168627, 0.631373)
 
 [node name="ItemShadow" type="Sprite2D"]
 show_behind_parent = true
+z_index = 1
+z_as_relative = false
 material = SubResource("ShaderMaterial_fw7gr")
 texture = ExtResource("2_xmeon")
 region_rect = Rect2(0, 0, 40.3022, 35.7202)

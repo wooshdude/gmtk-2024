@@ -3,6 +3,7 @@ extends Node2D
 const PERSON = preload("res://scenes/person.tscn")
 @export var people_list:PeopleList
 @export var xray:Node2D
+@export var confines:Sprite2D
 var allow_judgement:bool = false:
 	get:
 		var allow = allow_judgement
@@ -18,6 +19,7 @@ func _ready() -> void:
 	GlobalSignals.next_person.connect(_on_next_person)
 	GlobalSignals.next_person.emit()
 	GlobalSignals.person_ready.connect(_on_person_ready)
+	GrabManager.confines = confines
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

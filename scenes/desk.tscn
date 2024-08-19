@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=85 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
@@ -20,6 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://b6w160w7hn2mx" path="res://assets/sprites/stamp2.png" id="18_jljtp"]
 [ext_resource type="Texture2D" uid="uid://dhrr5ywkhkku2" path="res://assets/sprites/stamp3.png" id="19_jyts1"]
 [ext_resource type="Texture2D" uid="uid://lvprjsymuyyj" path="res://assets/sprites/stamp1.png" id="20_5kw0s"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j7ldr"]
+size = Vector2(32, 32)
 
 [sub_resource type="Curve" id="Curve_28tkt"]
 _data = [Vector2(0.0368421, 0.0879121), 0.0, 2.19363, 0, 1, Vector2(0.452632, 1), 1.24281, 1.24281, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -251,10 +254,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Desk" type="Node2D" node_paths=PackedStringArray("xray")]
+[node name="Desk" type="Node2D" node_paths=PackedStringArray("xray", "confines")]
 script = ExtResource("1_kqsai")
 people_list = ExtResource("2_e5y2o")
 xray = NodePath("Flashlight/Cursor")
+confines = NodePath("WorkArea")
 metadata/_edit_vertical_guides_ = [215.0, 310.0]
 metadata/_edit_horizontal_guides_ = [150.0, 118.0, 190.0]
 
@@ -266,6 +270,12 @@ centered = false
 [node name="Desk" type="Sprite2D" parent="."]
 texture = ExtResource("6_tnd2v")
 centered = false
+
+[node name="WorkArea" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(280, 163)
+scale = Vector2(5.5625, 2.4375)
+texture = SubResource("PlaceholderTexture2D_j7ldr")
 
 [node name="Scale" type="Sprite2D" parent="."]
 position = Vector2(36, 110)
