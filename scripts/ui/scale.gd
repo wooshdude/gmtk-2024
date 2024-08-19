@@ -13,10 +13,11 @@ func _process(delta: float) -> void:
 		cup.global_rotation = 0
 	
 	if not check_hovered(): 
-		weighing = false
-		if !!tween: tween.stop() 
-		tween = create_tween()
-		tween.tween_property(fulcrum, "rotation", 0, 3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		if weighing:
+			weighing = false
+			if !!tween: tween.stop() 
+			tween = create_tween()
+			tween.tween_property(fulcrum, "rotation", 0, 3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
 		return
 	if not check_hovered().grabbed:
 		var o = check_hovered()

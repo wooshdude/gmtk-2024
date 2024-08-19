@@ -4,7 +4,7 @@ class_name Draggable
 @export var return_when_dropped:bool = false
 var start_position
 
-enum ItemType { HEART, BELONGING, MEMO, FLASHLIGHT }
+enum ItemType { HEART, BELONGING, MEMO, FLASHLIGHT, STAMP }
 @export var type : ItemType
 
 var hovered = false

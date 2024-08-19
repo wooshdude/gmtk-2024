@@ -18,6 +18,7 @@ func _input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	
 	#Black magic (dont touch)
+#region balkc_mjigvc
 	velocity += ((mouse_relative * 0.1)-velocity) * 6.0 * delta
 	#print(velocity)
 	elapsed = wrap(elapsed + delta, 0, 2*PI)
@@ -26,5 +27,6 @@ func _process(delta: float) -> void:
 	scale.y = 1/(2**(velocity.length()*0.05))
 	rotation = lerp_angle(rotation, velocity.angle(), clamp(0.002+0.2*velocity.length(), 0, 1))
 	global_position = Vector2(get_parent().position.x, get_parent().position.y-45)
+#endregion
 	
 	mouse_relative = Vector2.ZERO

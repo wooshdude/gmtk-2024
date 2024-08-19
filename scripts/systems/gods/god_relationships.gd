@@ -14,7 +14,7 @@ enum Need {
 
 enum Gods {
 	OSIRIS,    # good
-	ISIS,      # mid
+	ISIS,      # mid # bitch you were too normal, go back there and do someshit
 	SET        # bad
 }
 
@@ -41,26 +41,26 @@ func _ready() -> void:
 
 func get_god(god_enum):
 	return gods[god_enum]
-
+	
+func get_number_of_godes():
+	return gods.size()
 
 func receive_person(god:Gods, person:Person):
 	person_received.emit(person)
 
 	if person.memos.size() > 0:
 		for memo in person.memos:
-			get_god(memo.from).appeased = true
-			for m in memo.send_to:
-				if god == m:
-					get_god(memo.from).relationship += 2
-					break;
+			if memo.send_to.has(god):
+				get_god(memo.from).relationship += 2
+			else: get_god(memo.from).relationship -= 2
 				
-				get_god(memo.from).relationship -= 2
+			get_god(memo.from).appeased = true
 	check_correct_god(person, god)
 
 
 func check_correct_god(person:Person, god:Gods):
 	var g = get_god(god)
-
+	print("%s was appeased: %s" % [g.name, g.appeased])
 	if g.appeased: return
 	if person.answer == god:
 		g.relationship += 1
@@ -68,6 +68,29 @@ func check_correct_god(person:Person, god:Gods):
 		get_god(person.answer).relationship -= 1
 		g.relationship -= 1
 
+#func calc_rep(person:Person, god:Gods):
+	#var rep = []
+	#rep.resize(get_number_of_godes())
+	#rep.fill(0)
+	#
+	#if person.memos.size() > 0:
+		#for memo in person.memos:
+			#get_god(memo.from).appeased = true
+			#for m in memo.send_to:
+				#if god == m:
+					#rep[memo.from] += 2
+					#break;
+				#
+				#rep[memo.from] -= 2
+	#
+	#var g = get_god(god)
+	#if g.appeased: return
+	#if person.answer == god:
+		#g.relationship += 1
+	#else:
+		#get_god(person.answer).relationship -= 1
+		#g.relationship -= 1
+	
 
 func _on_next_person():
 	for god in gods:
