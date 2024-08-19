@@ -85,17 +85,17 @@ text = "Isis
 "
 label_settings = SubResource("LabelSettings_e0ym8")
 
-[node name="Ra" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Set" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 script = ExtResource("1_onedv")
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Ra"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Set"]
 layout_mode = 2
 texture = ExtResource("1_7xj24")
 
-[node name="Label" type="Label" parent="VBoxContainer/Ra"]
+[node name="Label" type="Label" parent="VBoxContainer/Set"]
 layout_mode = 2
-text = "Ra
+text = "Set
 "
 label_settings = SubResource("LabelSettings_2rel4")
 

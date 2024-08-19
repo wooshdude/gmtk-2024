@@ -1,5 +1,6 @@
 extends Node
 
+signal person_ready
 signal next_person
 signal dismiss
 signal damn

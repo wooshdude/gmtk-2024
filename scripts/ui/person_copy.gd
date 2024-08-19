@@ -8,6 +8,7 @@ func _ready() -> void:
 	play("default")
 	sprite_frames = person_texture.sprite_frames
 	person_texture.sprite_frames_changed.connect(_on_texture_changed)
+	show()
 	
 func _process(delta: float) -> void:
 	if person.xray is Node2D:

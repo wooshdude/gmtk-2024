@@ -343,12 +343,14 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6t8gj")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_13k34")
 
 [node name="PersonCopy" type="AnimatedSprite2D" parent="."]
+visible = false
 clip_children = 2
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_tre03")
 script = ExtResource("3_6f1ub")
 
 [node name="XrayInsides" type="BackBufferCopy" parent="PersonCopy"]
+visible = false
 position = Vector2(3, -11)
 copy_mode = 0
 

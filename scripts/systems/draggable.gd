@@ -12,12 +12,13 @@ var grabbed = false
 @export var disabled = false
 @export var weight = 1
 var square_distance
-
+var tween:Tween
 
 func _ready() -> void:
 	start_position = position
 	GrabManager.add_object(self)
 	self.tree_exiting.connect(_on_tree_exiting)
+	
 
 
 func _physics_process(delta: float) -> void:

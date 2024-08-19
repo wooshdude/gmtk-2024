@@ -3,6 +3,7 @@ class_name PersonNode
 @onready var person_texture: AnimatedSprite2D = $PersonTexture
 @onready var dialogue: Control = $CanvasLayer/Dialogue
 
+var elasped:float = 0
 var xray:Node2D
 
 @export var person_data:Person :
@@ -18,7 +19,7 @@ func _ready() -> void:
 	person_texture.play("default")
 	position = Vector2(-64, get_viewport_rect().size.y /2)
 	var new_tween := create_tween()
-	new_tween.tween_property(self, "position", Vector2(get_viewport_rect().size.x /2, position.y), 0.5).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN_OUT)
+	new_tween.tween_property(self, "position", Vector2(get_viewport_rect().size.x /2, position.y), 1.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 	new_tween.finished.connect(_on_tween_finished)
 	await new_tween.finished
 	dialogue.start(person_data.dialogue)
@@ -42,6 +43,7 @@ func display_items():
 	new_heart.texture = load("res://assets/sprites/animated_heart/animated_heart.tres")
 	new_heart.type = Draggable.ItemType.HEART
 	new_heart.weight = person_data.weight
+	new_heart.rotation = 0
 	add_child(new_heart)
 		
 
@@ -67,7 +69,7 @@ func _on_damned():
 func _on_dismissed():
 	
 	var new_tween := create_tween()
-	new_tween.tween_property(self, "position", Vector2(get_viewport_rect().size.x + 64, position.y), 0.5).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN_OUT)
+	new_tween.tween_property(self, "position", Vector2(get_viewport_rect().size.x + 64, position.y), 1.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
 	new_tween.finished.connect(_on_person_left)
 
 
@@ -79,6 +81,7 @@ func _on_tween_finished():
 		print("constellation: %s" % person_data.constellation)
 		print("trade: %s" % person_data.trade)
 	display_items()
+	GlobalSignals.person_ready.emit()
 	
 
 func _on_person_left():
