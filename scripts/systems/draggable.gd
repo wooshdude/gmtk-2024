@@ -93,6 +93,7 @@ func drag():
 				ItemType.HEART : tween.tween_property(self, "offset", Vector2.ZERO, 0.7).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
 				ItemType.STAMP : 
 					tween.tween_property(self, "offset", Vector2(0, 4), 0.7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+					if GrabManager.on_heart(self): tween.parallel().tween_property(self, "position", GrabManager.heart.position, 0.5).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 					tween.tween_property(self, "offset", Vector2(randf_range(-2, 2), 2), 0.2).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN)
 					tween.tween_property(self, "offset", Vector2(randf_range(-2, 2), 0), 0.2).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN)
 					tween.tween_property(self, "offset", Vector2(0, 0), 0.2).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN)
@@ -101,6 +102,7 @@ func drag():
 			dropped = true
 			if self.type == ItemType.STAMP and GrabManager.on_heart(self):
 				GlobalSignals.stamped.emit(god)
+				
 		#GrabManager.grabbed_object = null
 		#TODO ADD SFX
 
