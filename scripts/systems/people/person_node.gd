@@ -8,6 +8,7 @@ var elapse_speed = 20
 var xray:Node2D
 var tween:Tween
 var items:Array[Draggable] = []
+var heart:Draggable
 
 @export var person_data:Person :
 	set(value):
@@ -48,13 +49,12 @@ func display_items():
 			add_child(new_item)
 			items.append(new_item)
 	
-	var new_heart = create_draggable()
-	new_heart.texture = load("res://assets/sprites/animated_heart/animated_heart.tres")
-	new_heart.type = Draggable.ItemType.HEART
-	new_heart.weight = person_data.weight
-	new_heart.rotation = 0
-	add_child(new_heart)
-	items.append(new_heart)
+	heart = create_draggable()
+	heart.texture = load("res://assets/sprites/animated_heart/animated_heart.tres")
+	heart.type = Draggable.ItemType.HEART
+	heart.weight = person_data.weight
+	heart.rotation = 0
+	add_child(heart)
 		
 
 func create_draggable() -> Draggable:

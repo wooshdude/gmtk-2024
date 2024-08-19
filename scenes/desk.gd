@@ -40,20 +40,20 @@ func _on_person_ready():
 	allow_judgement = true
 
 
-func _on_good_button_pressed() -> void:
-	print('good')
-	if(allow_judgement):
-		GlobalSignals.dismiss.emit()
-		GodManager.receive_person(GodManager.Gods.OSIRIS, current_person.person_data)
-
-
-func _on_mid_button_pressed() -> void:
-	if(allow_judgement):
-		GlobalSignals.dismiss.emit()
-		GodManager.receive_person(GodManager.Gods.ISIS, current_person.person_data)
-
-
-func _on_bad_button_pressed() -> void:
-	if(allow_judgement):
-		GlobalSignals.damn.emit()
-		GodManager.receive_person(GodManager.Gods.SET, current_person.person_data)
+#func _on_good_button_pressed() -> void:
+	#print('good')
+	#if(allow_judgement):
+		#GlobalSignals.dismiss.emit()
+		#GodManager.receive_person(GodManager.Gods.OSIRIS, current_person.person_data)
+#
+#
+#func _on_mid_button_pressed() -> void:
+	#if(allow_judgement):
+		#GlobalSignals.dismiss.emit()
+		#GodManager.receive_person(GodManager.Gods.ISIS, current_person.person_data)
+#
+#
+#func _on_bad_button_pressed() -> void:
+	#if(allow_judgement):
+		#GlobalSignals.damn.emit()
+		#GodManager.receive_person(GodManager.Gods.SET, current_person.person_data)

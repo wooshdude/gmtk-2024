@@ -280,7 +280,11 @@ position = Vector2(97, 157)
 texture = ExtResource("6_yj0g3")
 script = ExtResource("7_l0jto")
 return_when_dropped = true
+return_after_dropped = null
 type = 3
+god = null
+disabled = null
+weight = null
 
 [node name="Cursor" type="Node2D" parent="Flashlight"]
 position = Vector2(-97, -157)
@@ -498,7 +502,12 @@ flat = true
 position = Vector2(355, 121)
 texture = ExtResource("18_jljtp")
 script = ExtResource("7_l0jto")
+return_when_dropped = null
+return_after_dropped = true
 type = 4
+god = null
+disabled = null
+weight = null
 
 [node name="Button" type="Button" parent="GoodStamp"]
 offset_left = -9.0
@@ -516,12 +525,18 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_egqkg")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_i8phi")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gkf6h")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_b3sha")
+metadata/_edit_use_anchors_ = true
 
 [node name="MidStamp" type="Sprite2D" parent="."]
 position = Vector2(355, 153)
 texture = ExtResource("19_jyts1")
 script = ExtResource("7_l0jto")
+return_when_dropped = null
+return_after_dropped = true
 type = 4
+god = 1
+disabled = null
+weight = null
 
 [node name="Button2" type="Button" parent="MidStamp"]
 offset_left = -9.0
@@ -545,7 +560,12 @@ flat = true
 position = Vector2(355, 185)
 texture = ExtResource("20_5kw0s")
 script = ExtResource("7_l0jto")
+return_when_dropped = null
+return_after_dropped = true
 type = 4
+god = 2
+disabled = null
+weight = null
 
 [node name="Button3" type="Button" parent="BadStamp"]
 offset_left = -9.0
