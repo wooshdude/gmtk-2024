@@ -6,17 +6,18 @@ class_name AnimatedScale
 var weighing = false
 var tween:Tween
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	for cup:Sprite2D in fulcrum.get_children():
 		cup.global_rotation = 0
 	
-	if not check_hovered(): return
+	if not check_hovered(): 
+		weighing = false
+		if !!tween: tween.stop() 
+		tween = create_tween()
+		tween.tween_property(fulcrum, "rotation", 0, 3).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_ELASTIC)
+		return
 	if not check_hovered().grabbed:
 		var o = check_hovered()
 		o.global_position = lerp(o.global_position, heart_cup.global_position, 0.1)
@@ -24,6 +25,7 @@ func _process(delta: float) -> void:
 			weighing = true
 			if !!tween: tween.stop() 
 			tween = create_tween()
+			var weight
 			tween.tween_property(fulcrum, "rotation", atan(o.weight), 1).set_ease(Tween.EASE_OUT).set_custom_interpolator(fall_curve.sample)
 	elif weighing:
 		weighing = false

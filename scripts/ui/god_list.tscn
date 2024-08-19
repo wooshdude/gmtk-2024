@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://3mcrgihku5cu"]
+[gd_scene load_steps=11 format=3 uid="uid://3mcrgihku5cu"]
 
 [ext_resource type="Texture2D" uid="uid://dm4t8i4wba251" path="res://icon.svg" id="1_7xj24"]
 [ext_resource type="Script" path="res://scripts/ui/god_list.gd" id="1_gnvf2"]
 [ext_resource type="Script" path="res://scripts/ui/god_button.gd" id="1_onedv"]
+[ext_resource type="FontFile" uid="uid://deuvnxihu7d2v" path="res://assets/fonts/Scrambled_Eggs.ttf" id="4_d5sgo"]
+[ext_resource type="Theme" uid="uid://dnk0uqvjlp3v0" path="res://assets/default_theme.tres" id="4_e0fpd"]
 
 [sub_resource type="Gradient" id="Gradient_7uwyn"]
 
@@ -10,6 +12,18 @@
 gradient = SubResource("Gradient_7uwyn")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ntbrp"]
+font = ExtResource("4_d5sgo")
+font_color = Color(0.0901961, 0.101961, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e0ym8"]
+font = ExtResource("4_d5sgo")
+font_color = Color(0.0901961, 0.101961, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2rel4"]
+font = ExtResource("4_d5sgo")
+font_color = Color(0.0901961, 0.101961, 0.219608, 1)
 
 [node name="GodList" type="Control"]
 layout_mode = 3
@@ -22,6 +36,7 @@ script = ExtResource("1_gnvf2")
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,10 +50,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 5.0
-offset_right = -4.0
-offset_bottom = -5.0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = -180.0
+offset_bottom = -9.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 5
@@ -54,6 +69,21 @@ texture = ExtResource("1_7xj24")
 [node name="Label" type="Label" parent="VBoxContainer/Orisis"]
 layout_mode = 2
 text = "Osiris"
+label_settings = SubResource("LabelSettings_ntbrp")
+
+[node name="Isis" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+script = ExtResource("1_onedv")
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Isis"]
+layout_mode = 2
+texture = ExtResource("1_7xj24")
+
+[node name="Label" type="Label" parent="VBoxContainer/Isis"]
+layout_mode = 2
+text = "Isis
+"
+label_settings = SubResource("LabelSettings_e0ym8")
 
 [node name="Ra" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -67,9 +97,24 @@ texture = ExtResource("1_7xj24")
 layout_mode = 2
 text = "Ra
 "
+label_settings = SubResource("LabelSettings_2rel4")
 
 [node name="Cursor" type="TextureRect" parent="."]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_7xj24")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+offset_left = 201.0
+offset_right = 370.0
+offset_bottom = 208.0
+horizontal_scroll_mode = 0
+
+[node name="Memos" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("4_e0fpd")
+theme_override_constants/separation = 25

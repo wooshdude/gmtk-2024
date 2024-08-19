@@ -28,5 +28,17 @@ func _on_next_person():
 	current_person = new_person
 
 
-func _on_gods_god_selected(name) -> void:
+func _on_good_button_pressed() -> void:
+	print('good')
 	GlobalSignals.dismiss.emit()
+	GodManager.receive_person(GodManager.Gods.OSIRIS, current_person.person_data)
+
+
+func _on_mid_button_pressed() -> void:
+	GlobalSignals.dismiss.emit()
+	GodManager.receive_person(GodManager.Gods.ISIS, current_person.person_data)
+
+
+func _on_bad_button_pressed() -> void:
+	GlobalSignals.damn.emit()
+	GodManager.receive_person(GodManager.Gods.SET, current_person.person_data)

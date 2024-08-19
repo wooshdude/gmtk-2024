@@ -1,32 +1,177 @@
-[gd_resource type="Resource" script_class="PeopleList" load_steps=6 format=3 uid="uid://dn7bxf43adnmf"]
+[gd_resource type="Resource" script_class="PeopleList" load_steps=24 format=3 uid="uid://dn7bxf43adnmf"]
 
 [ext_resource type="Script" path="res://scripts/systems/people/person.gd" id="1_720wt"]
 [ext_resource type="Script" path="res://scripts/systems/people/people_list.gd" id="2_rvh6s"]
+[ext_resource type="Script" path="res://scripts/systems/gods/request.gd" id="2_su2o5"]
 
 [sub_resource type="Resource" id="Resource_16kq3"]
 script = ExtResource("1_720wt")
-weight = 2.0
-constellation = 2
-trade = 1
-wealth = 6
-belongings = 2
+answer = 0
+purity = 0
+constellation = 0
+trade = 0
+dialogue = "Hi- um... I think I died?"
+memos = Array[ExtResource("2_su2o5")]([])
+regulation = ""
 
 [sub_resource type="Resource" id="Resource_j7ane"]
 script = ExtResource("1_720wt")
-weight = -0.5
-constellation = 4
+answer = 2
+purity = 6
+constellation = 0
 trade = 0
-wealth = 2
-belongings = 1
+dialogue = "You know- you remind me of this one dog I bought my wife. It was a sad little creature."
+memos = Array[ExtResource("2_su2o5")]([])
+regulation = ""
+
+[sub_resource type="Resource" id="Resource_6oxbu"]
+script = ExtResource("2_su2o5")
+from = 2
+text = "Rules, regulations and policies... Osiris did always love his red tape. Whaddya say, son, why don't you throw in a little chaos? Send this one to me."
+send_to = Array[int]([2])
 
 [sub_resource type="Resource" id="Resource_4wodv"]
 script = ExtResource("1_720wt")
-weight = 0.9
+answer = 0
+purity = 4
 constellation = 3
+trade = 0
+dialogue = "It was only a loaf of bread..."
+memos = Array[ExtResource("2_su2o5")]([SubResource("Resource_6oxbu")])
+regulation = "Minor Sinners MAY enter the field of Reeds if they posess the sign of Gemini or Virgo"
+
+[sub_resource type="Resource" id="Resource_lnl6l"]
+script = ExtResource("1_720wt")
+answer = 2
+purity = 6
+constellation = 6
+trade = 0
+dialogue = "..."
+memos = Array[ExtResource("2_su2o5")]([])
+regulation = "The Souls of Priests are to be returned to the Earth to aid the Queen Isis. Any souls bearing the Priest profession MUST be sent back to Earth to be reincarnated."
+
+[sub_resource type="Resource" id="Resource_6sc3p"]
+script = ExtResource("1_720wt")
+answer = 1
+purity = 1
+constellation = 1
 trade = 2
-wealth = 4
-belongings = 2
+dialogue = "To stand in the Court of Lord Osiris Himself... Awe-inspiring"
+memos = Array[ExtResource("2_su2o5")]([])
+regulation = ""
+
+[sub_resource type="Resource" id="Resource_vrp6j"]
+script = ExtResource("1_720wt")
+answer = 0
+purity = 1
+constellation = 7
+trade = 7
+dialogue = "I never should have sailed south."
+memos = Array[ExtResource("2_su2o5")]([])
+regulation = "Laborers with a purity LOWER than medium and sin HIGHER than major must be returned to Earth"
+
+[sub_resource type="Resource" id="Resource_nu7my"]
+script = ExtResource("2_su2o5")
+from = 1
+text = "While this one may wear the cloth, I can see their true nature. I care not what Osiris says, do not return this one to me, instead cast them into the flame."
+send_to = Array[int]([2])
+
+[sub_resource type="Resource" id="Resource_skvv0"]
+script = ExtResource("2_su2o5")
+from = 2
+text = "I know this soul well. Allow them through to the Field of Reeds, son of mine. They will incite great disorder and fear in the House of Osiris."
+send_to = Array[int]([0])
+
+[sub_resource type="Resource" id="Resource_fldcn"]
+script = ExtResource("1_720wt")
+answer = 1
+purity = 6
+constellation = 6
+trade = 2
+dialogue = "Ahhh... How long I have waited..."
+memos = Array[ExtResource("2_su2o5")]([SubResource("Resource_nu7my"), SubResource("Resource_skvv0")])
+regulation = ""
+
+[sub_resource type="Resource" id="Resource_vs3nv"]
+script = ExtResource("1_720wt")
+answer = 2
+purity = 6
+constellation = 5
+trade = 8
+dialogue = "What are Gods paid in, exactly?"
+memos = Array[ExtResource("2_su2o5")]([])
+regulation = "Those possessing the signs of Leo, Capricorn, and Gemini are considered an additional level of purity higher than the scale reads, unless they are a laborer"
+
+[sub_resource type="Resource" id="Resource_jqe3m"]
+script = ExtResource("2_su2o5")
+from = 2
+text = "Osiris seems quite interested in this one. Uproot the fools plans, send him back to Earth or to me."
+send_to = Array[int]([1, 2])
+
+[sub_resource type="Resource" id="Resource_nyhxu"]
+script = ExtResource("1_720wt")
+answer = 0
+purity = 5
+constellation = 3
+trade = 6
+dialogue = "Quite expensive isn't it? This whole dying thing."
+memos = Array[ExtResource("2_su2o5")]([SubResource("Resource_jqe3m")])
+regulation = ""
+
+[sub_resource type="Resource" id="Resource_dcsik"]
+script = ExtResource("2_su2o5")
+from = 1
+text = "Return this one to me, there is still work to be done"
+send_to = Array[int]([])
+
+[sub_resource type="Resource" id="Resource_vkf51"]
+script = ExtResource("1_720wt")
+answer = 2
+purity = 5
+constellation = 8
+trade = 1
+dialogue = "...Long shift?"
+memos = Array[ExtResource("2_su2o5")]([SubResource("Resource_dcsik")])
+regulation = "Libra's and Scorpio's are to be judged as being an additional level of sinful HIGHER(as in more sinful) than the scale reads, unless they are a laborer"
+
+[sub_resource type="Resource" id="Resource_mf5p0"]
+script = ExtResource("1_720wt")
+answer = 1
+purity = 5
+constellation = 7
+trade = 8
+dialogue = "So... do you get PTO?"
+memos = Array[ExtResource("2_su2o5")]([])
+regulation = ""
+
+[sub_resource type="Resource" id="Resource_ay4ek"]
+script = ExtResource("2_su2o5")
+from = 0
+text = "Send them to rest among the reeds, as is their divine right"
+send_to = Array[int]([0])
+
+[sub_resource type="Resource" id="Resource_l23yc"]
+script = ExtResource("2_su2o5")
+from = 1
+text = "They must be returned to Earth and fix their mistakes"
+send_to = Array[int]([1])
+
+[sub_resource type="Resource" id="Resource_oakd7"]
+script = ExtResource("2_su2o5")
+from = 2
+text = "Send the sinner where they belong. Bring them to me."
+send_to = Array[int]([2])
+
+[sub_resource type="Resource" id="Resource_8aue8"]
+script = ExtResource("1_720wt")
+answer = 2
+purity = 5
+constellation = 10
+trade = 3
+dialogue = "I see. Our fall had been ordained long ago."
+memos = Array[ExtResource("2_su2o5")]([SubResource("Resource_ay4ek"), SubResource("Resource_l23yc"), SubResource("Resource_oakd7")])
+regulation = "The soul of a Pharoh is a coveted gift"
 
 [resource]
 script = ExtResource("2_rvh6s")
-people = Array[ExtResource("1_720wt")]([SubResource("Resource_16kq3"), SubResource("Resource_j7ane"), SubResource("Resource_4wodv")])
+people = Array[ExtResource("1_720wt")]([SubResource("Resource_16kq3"), SubResource("Resource_j7ane"), SubResource("Resource_4wodv"), SubResource("Resource_lnl6l"), SubResource("Resource_6sc3p"), SubResource("Resource_vrp6j"), SubResource("Resource_fldcn"), SubResource("Resource_vs3nv"), SubResource("Resource_nyhxu"), SubResource("Resource_vkf51"), SubResource("Resource_mf5p0"), SubResource("Resource_8aue8")])

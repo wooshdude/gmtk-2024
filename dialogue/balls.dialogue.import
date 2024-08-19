@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_12"
+type="Resource"
+uid="uid://btd5m3f7fw1ao"
+path="res://.godot/imported/balls.dialogue-f97dafcb71451be7335faa4945601039.tres"
+
+[deps]
+
+source_file="res://dialogue/balls.dialogue"
+dest_files=["res://.godot/imported/balls.dialogue-f97dafcb71451be7335faa4945601039.tres"]
+
+[params]
+
+defaults=true

@@ -1,16 +1,19 @@
-[gd_scene load_steps=51 format=3 uid="uid://cagsgtgpfoobg"]
+[gd_scene load_steps=65 format=3 uid="uid://cagsgtgpfoobg"]
 
 [ext_resource type="Script" path="res://scripts/systems/people/person_node.gd" id="1_2xjdu"]
 [ext_resource type="Texture2D" uid="uid://cbc36gtkpa3bn" path="res://assets/sprites/silly guy blank-sheet.png" id="2_4elp4"]
+[ext_resource type="Resource" uid="uid://cv6x7635af3y4" path="res://scripts/systems/people/new_person.tres" id="2_5j46c"]
 [ext_resource type="Texture2D" uid="uid://bxuo8qq7c6mqf" path="res://assets/sprites/silly guy dogs.png" id="2_au81b"]
 [ext_resource type="Script" path="res://scripts/ui/person_copy.gd" id="3_6f1ub"]
 [ext_resource type="Shader" path="res://assets/shaders/scroll_bg.gdshader" id="3_l6jnw"]
 [ext_resource type="Texture2D" uid="uid://t26e7yl34u5e" path="res://assets/sprites/xray_tile.png" id="4_wod1j"]
 [ext_resource type="Shader" path="res://assets/shaders/mask.gdshader" id="5_6yk2f"]
-[ext_resource type="SpriteFrames" uid="uid://b3850dvyfs3x" path="res://assets/sprites/constellations.tres" id="6_4u6xm"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/constellations.tres" id="6_4u6xm"]
 [ext_resource type="Texture2D" uid="uid://c4atpvk17aj7f" path="res://assets/sprites/xray_mask.png" id="6_kgptw"]
 [ext_resource type="Script" path="res://scripts/ui/constellation_node.gd" id="7_878vq"]
 [ext_resource type="Script" path="res://scripts/ui/xray/mask.gd" id="7_ynoux"]
+[ext_resource type="Theme" uid="uid://dnk0uqvjlp3v0" path="res://assets/default_theme.tres" id="13_7fpsh"]
+[ext_resource type="Script" path="res://scripts/ui/dialogue.gd" id="14_nedu8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1207"]
 atlas = ExtResource("2_au81b")
@@ -277,6 +280,28 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekkjk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42pj1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uvaws"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfaie"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2n6qw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yr5m0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iixnj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7lt2u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mu5qc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6t8gj"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13k34"]
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_froxh"]
 shader = ExtResource("3_l6jnw")
 shader_parameter/speed = 0.3
@@ -292,12 +317,30 @@ shader_parameter/angle = 0.0
 [node name="Person" type="Node2D"]
 z_index = -1
 script = ExtResource("1_2xjdu")
+person_data = ExtResource("2_5j46c")
 
 [node name="PersonTexture" type="AnimatedSprite2D" parent="."]
 clip_children = 2
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_tre03")
 animation = &"attacked"
+
+[node name="Button" type="Button" parent="."]
+offset_left = -21.0
+offset_top = -54.0
+offset_right = 28.0
+offset_bottom = -16.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ekkjk")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_42pj1")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_uvaws")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_mfaie")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_2n6qw")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_yr5m0")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_iixnj")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7lt2u")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_mu5qc")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6t8gj")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_13k34")
 
 [node name="PersonCopy" type="AnimatedSprite2D" parent="."]
 clip_children = 2
@@ -323,6 +366,7 @@ offset_right = 19.0
 offset_bottom = 19.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("4_wod1j")
 stretch_mode = 1
 
@@ -338,3 +382,43 @@ position = Vector2(2, 2)
 scale = Vector2(6, 6)
 texture = ExtResource("6_kgptw")
 script = ExtResource("7_ynoux")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Dialogue" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("13_7fpsh")
+script = ExtResource("14_nedu8")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Dialogue"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 136.0
+offset_bottom = 76.0
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Dialogue/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogue/Panel/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,10 +1,35 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dnk0uqvjlp3v0"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dnk0uqvjlp3v0"]
 
 [ext_resource type="FontFile" uid="uid://deuvnxihu7d2v" path="res://assets/fonts/Scrambled_Eggs.ttf" id="1_2jkpb"]
 [ext_resource type="FontFile" uid="uid://dwsh0lhudro8k" path="res://assets/fonts/quaver.ttf" id="2_rho0d"]
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_s6da8"]
+color = Color(0.0901961, 0.101961, 0.219608, 1)
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 5
+vertical = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kcj8f"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_habg1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5yk7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_a83k6"]
+
 [resource]
+default_font = ExtResource("1_2jkpb")
+default_font_size = 16
 Button/fonts/font = ExtResource("1_2jkpb")
-Label/fonts/font = ExtResource("1_2jkpb")
+Label/colors/font_color = Color(0.0901961, 0.101961, 0.219608, 1)
+Label/font_sizes/font_size = 8
+Label/fonts/font = ExtResource("2_rho0d")
+RichTextLabel/font_sizes/normal_font_size = 8
 RichTextLabel/fonts/normal_font = ExtResource("2_rho0d")
 TabContainer/fonts/font = ExtResource("1_2jkpb")
+VScrollBar/styles/grabber = SubResource("StyleBoxLine_s6da8")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_kcj8f")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_habg1")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_u5yk7")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_a83k6")

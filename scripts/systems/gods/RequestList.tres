@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RequestList" load_steps=5 format=3 uid="uid://j1que3hs60p4"]
+
+[ext_resource type="Script" path="res://scripts/systems/gods/request.gd" id="1_1t6b7"]
+[ext_resource type="Script" path="res://scripts/systems/gods/request_list.gd" id="2_ieofn"]
+[ext_resource type="Resource" uid="uid://bulyfcsco0b0j" path="res://scripts/systems/gods/new_resource.tres" id="2_pnvvi"]
+
+[sub_resource type="Resource" id="Resource_oe34m"]
+script = ExtResource("1_1t6b7")
+from = 0
+text = ""
+send_to = 0
+
+[resource]
+script = ExtResource("2_ieofn")
+list = Array[ExtResource("1_1t6b7")]([SubResource("Resource_oe34m"), ExtResource("2_pnvvi"), ExtResource("2_pnvvi"), ExtResource("2_pnvvi"), ExtResource("2_pnvvi")])

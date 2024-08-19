@@ -1,11 +1,12 @@
-[gd_resource type="Resource" script_class="Person" load_steps=2 format=3 uid="uid://cv6x7635af3y4"]
+[gd_resource type="Resource" script_class="Person" load_steps=3 format=3 uid="uid://cv6x7635af3y4"]
 
 [ext_resource type="Script" path="res://scripts/systems/people/person.gd" id="1_jtuc4"]
+[ext_resource type="Script" path="res://scripts/systems/gods/request.gd" id="1_r14t6"]
 
 [resource]
 script = ExtResource("1_jtuc4")
 weight = 3
 constellation = 3
 trade = 3
-wealth = 2
-belongings = 2
+dialogue = "Hi- um... / I think I died?"
+memos = Array[ExtResource("1_r14t6")]([null])

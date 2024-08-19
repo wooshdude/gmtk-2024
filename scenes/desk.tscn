@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=84 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
@@ -16,6 +16,10 @@
 [ext_resource type="Texture2D" uid="uid://c16d4p14olnf3" path="res://assets/sprites/scale/cup_2.png" id="8_u5i0x"]
 [ext_resource type="Texture2D" uid="uid://q6aejrqu8g15" path="res://assets/sprites/scale/cup_1.png" id="9_nrywn"]
 [ext_resource type="Script" path="res://scripts/ui/xray/xray_transform.gd" id="12_q4x0c"]
+[ext_resource type="Texture2D" uid="uid://cj2ln7rdio0h6" path="res://assets/sprites/bookui.png" id="17_i7hiq"]
+[ext_resource type="Texture2D" uid="uid://b6w160w7hn2mx" path="res://assets/sprites/stamp2.png" id="18_jljtp"]
+[ext_resource type="Texture2D" uid="uid://dhrr5ywkhkku2" path="res://assets/sprites/stamp3.png" id="19_jyts1"]
+[ext_resource type="Texture2D" uid="uid://lvprjsymuyyj" path="res://assets/sprites/stamp1.png" id="20_5kw0s"]
 
 [sub_resource type="Curve" id="Curve_28tkt"]
 _data = [Vector2(0.0368421, 0.0879121), 0.0, 2.19363, 0, 1, Vector2(0.452632, 1), 1.24281, 1.24281, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
@@ -49,11 +53,209 @@ point_count = 7
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_16ku5"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_khsws"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(1710, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7a1gq"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(1368, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fco5u"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(1026, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x0r6"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(684, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liy1u"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(342, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yo4l7"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(0, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ml4uf"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(0, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3dyd"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(342, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrg0a"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(684, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a7pt"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(1026, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mk6in"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(1368, 0, 342, 212)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw40d"]
+atlas = ExtResource("17_i7hiq")
+region = Rect2(1710, 0, 342, 212)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8aj6s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khsws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7a1gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fco5u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x0r6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liy1u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yo4l7")
+}],
+"loop": false,
+"name": &"close",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ml4uf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3dyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrg0a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a7pt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mk6in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tw40d")
+}],
+"loop": false,
+"name": &"open",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7aggm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pu2w4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vop7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_t263w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_41rtu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mmfop"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vauhd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ap12"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_330wp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2lgo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1dtyc"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ojx6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bank8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i35rq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rk6c0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rmmjv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mi11c"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ipvgr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s348b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sucjf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g3f57"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2by1m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wmxtq"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_prgse"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_jljtp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ltsd4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24c3j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_q5xtk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nyv2j"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ikdmn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qq4ak"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_g6tqk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_egqkg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i8phi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkf6h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3sha"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_85vxr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("19_jyts1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0uux8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_5kw0s")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="Desk" type="Node2D" node_paths=PackedStringArray("xray")]
 script = ExtResource("1_kqsai")
 people_list = ExtResource("2_e5y2o")
 xray = NodePath("Flashlight/Cursor")
-metadata/_edit_vertical_guides_ = [200.0, 350.0]
+metadata/_edit_vertical_guides_ = [215.0, 310.0]
 metadata/_edit_horizontal_guides_ = [150.0, 118.0, 190.0]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -72,11 +274,13 @@ script = ExtResource("6_is8gj")
 fall_curve = SubResource("Curve_28tkt")
 
 [node name="Fulcrum" type="Sprite2D" parent="Scale"]
+z_index = 1
 position = Vector2(0, -43)
 texture = ExtResource("7_3yeg2")
 offset = Vector2(0, -2)
 
 [node name="CupR" type="Sprite2D" parent="Scale/Fulcrum"]
+z_as_relative = false
 position = Vector2(23, -1)
 texture = ExtResource("8_u5i0x")
 offset = Vector2(0, 15)
@@ -85,6 +289,7 @@ offset = Vector2(0, 15)
 position = Vector2(0, 27)
 
 [node name="CupL" type="Sprite2D" parent="Scale/Fulcrum"]
+z_as_relative = false
 position = Vector2(-25, -1)
 texture = ExtResource("9_nrywn")
 offset = Vector2(0, 15)
@@ -123,10 +328,24 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -28.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("3_71q6f")
 script = ExtResource("2_4086j")
+
+[node name="Notifications" type="VBoxContainer" parent="CanvasLayer/Control"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -60.0
+offset_top = 8.0
+offset_right = 20.0
+offset_bottom = 97.0
+grow_horizontal = 0
 
 [node name="ShowBook" type="Button" parent="CanvasLayer/Control"]
 z_index = -1
@@ -149,7 +368,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_16ku5")
 flat = true
 metadata/_edit_group_ = true
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+[node name="BookGUI" type="MarginContainer" parent="CanvasLayer/Control"]
 visible = false
 z_index = 3
 layout_mode = 1
@@ -163,49 +382,214 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 25
 theme_override_constants/margin_bottom = 10
 
-[node name="Book" type="Control" parent="CanvasLayer/Control/MarginContainer"]
-layout_mode = 2
+[node name="BookTexture" type="AnimatedSprite2D" parent="CanvasLayer/Control/BookGUI"]
+position = Vector2(14, 0)
+sprite_frames = SubResource("SpriteFrames_8aj6s")
+animation = &"open"
+frame = 5
+frame_progress = 1.0
+centered = false
 
-[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control/MarginContainer/Book"]
+[node name="Book" type="Control" parent="CanvasLayer/Control/BookGUI"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control/BookGUI/Book"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 29.0
+offset_top = 12.0
+offset_right = -3.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7aggm")
+current_tab = 1
+tabs_visible = false
 
-[node name="Gods" parent="CanvasLayer/Control/MarginContainer/Book/TabContainer" instance=ExtResource("5_vsu0u")]
+[node name="Gods" parent="CanvasLayer/Control/BookGUI/Book/TabContainer" instance=ExtResource("5_vsu0u")]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="Info" type="Control" parent="CanvasLayer/Control/MarginContainer/Book/TabContainer"]
-visible = false
+[node name="VBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods" index="1"]
+offset_right = -133.0
+
+[node name="ScrollContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods" index="3"]
+offset_left = 150.0
+offset_top = 9.0
+offset_right = 255.0
+offset_bottom = 158.0
+
+[node name="Info" type="Control" parent="CanvasLayer/Control/BookGUI/Book/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Control/MarginContainer/Book/TabContainer/Info"]
+[node name="Signs" type="Control" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info"]
+layout_mode = 2
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 6.0
+offset_top = 9.0
+offset_right = -138.0
+offset_bottom = -9.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
 
-[node name="Signs" type="Control" parent="CanvasLayer/Control/MarginContainer/Book/TabContainer/Info/TabContainer"]
+[node name="Regulations" type="Control" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info"]
 layout_mode = 2
-metadata/_tab_index = 0
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 151.0
+offset_top = 9.0
+offset_right = -5.0
+offset_bottom = -9.0
 
-[node name="Close" type="Button" parent="CanvasLayer/Control/MarginContainer/Book"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Regulations"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Regulations/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+
+[node name="Close" type="Button" parent="CanvasLayer/Control/BookGUI/Book"]
 layout_mode = 0
-offset_left = 311.0
-offset_top = -2.0
-offset_right = 333.0
-offset_bottom = 26.0
+offset_left = 291.0
+offset_top = 8.0
+offset_right = 313.0
+offset_bottom = 36.0
 text = "X"
+flat = true
+
+[node name="GodsTab" type="Button" parent="CanvasLayer/Control/BookGUI/Book"]
+layout_mode = 0
+offset_left = 57.0
+offset_top = -3.0
+offset_right = 102.0
+offset_bottom = 11.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pu2w4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_7vop7")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_t263w")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_41rtu")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mmfop")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_vauhd")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_0ap12")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_330wp")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i2lgo")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_1dtyc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_6ojx6")
+flat = true
+
+[node name="InfoTab" type="Button" parent="CanvasLayer/Control/BookGUI/Book"]
+layout_mode = 0
+offset_left = 103.0
+offset_top = -3.0
+offset_right = 144.0
+offset_bottom = 11.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bank8")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_i35rq")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_rk6c0")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_rmmjv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mi11c")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_ipvgr")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_s348b")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_sucjf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_g3f57")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2by1m")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wmxtq")
+flat = true
+
+[node name="GoodStamp" type="AnimatedSprite2D" parent="."]
+position = Vector2(355, 121)
+sprite_frames = SubResource("SpriteFrames_prgse")
+
+[node name="Button" type="Button" parent="GoodStamp"]
+offset_left = -9.0
+offset_top = -14.0
+offset_right = 9.0
+offset_bottom = 7.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ltsd4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_24c3j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q5xtk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nyv2j")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ikdmn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qq4ak")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g6tqk")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_egqkg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i8phi")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gkf6h")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b3sha")
+
+[node name="MidStamp" type="AnimatedSprite2D" parent="."]
+position = Vector2(355, 153)
+sprite_frames = SubResource("SpriteFrames_85vxr")
+
+[node name="Button2" type="Button" parent="MidStamp"]
+offset_left = -9.0
+offset_top = -14.0
+offset_right = 9.0
+offset_bottom = 7.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ltsd4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_24c3j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q5xtk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nyv2j")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ikdmn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qq4ak")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g6tqk")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_egqkg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i8phi")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gkf6h")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b3sha")
+flat = true
+
+[node name="BadStamp" type="AnimatedSprite2D" parent="."]
+position = Vector2(355, 185)
+sprite_frames = SubResource("SpriteFrames_0uux8")
+
+[node name="Button3" type="Button" parent="BadStamp"]
+offset_left = -9.0
+offset_top = -14.0
+offset_right = 9.0
+offset_bottom = 7.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ltsd4")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_24c3j")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_q5xtk")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_nyv2j")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_ikdmn")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_qq4ak")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_g6tqk")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_egqkg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_i8phi")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gkf6h")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_b3sha")
+flat = true
 
 [connection signal="button_down" from="CanvasLayer/Control/ShowBook" to="CanvasLayer/Control" method="_on_show_book_button_down"]
-[connection signal="god_selected" from="CanvasLayer/Control/MarginContainer/Book/TabContainer/Gods" to="." method="_on_gods_god_selected"]
-[connection signal="god_selected" from="CanvasLayer/Control/MarginContainer/Book/TabContainer/Gods" to="CanvasLayer/Control" method="_on_gods_god_selected"]
-[connection signal="button_down" from="CanvasLayer/Control/MarginContainer/Book/Close" to="CanvasLayer/Control" method="_on_close_button_down"]
+[connection signal="god_selected" from="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods" to="." method="_on_gods_god_selected"]
+[connection signal="god_selected" from="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods" to="CanvasLayer/Control" method="_on_gods_god_selected"]
+[connection signal="button_down" from="CanvasLayer/Control/BookGUI/Book/Close" to="CanvasLayer/Control" method="_on_close_button_down"]
+[connection signal="pressed" from="CanvasLayer/Control/BookGUI/Book/GodsTab" to="CanvasLayer/Control" method="_on_gods_tab_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/BookGUI/Book/InfoTab" to="CanvasLayer/Control" method="_on_info_tab_pressed"]
+[connection signal="pressed" from="GoodStamp/Button" to="." method="_on_good_button_pressed"]
+[connection signal="pressed" from="MidStamp/Button2" to="." method="_on_mid_button_pressed"]
+[connection signal="pressed" from="BadStamp/Button3" to="." method="_on_bad_button_pressed"]
+
+[editable path="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods"]

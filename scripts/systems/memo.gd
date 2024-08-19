@@ -11,10 +11,10 @@ var gods = ["Joe", "Ballsack", "Osiris", "Saint-14", "Riven", "Savathun"] ##TODO
 enum stats { WEIGHT, SIGN, BELONGINGS, TRADE, WEALTH }
 enum signs { SOLAR, ARC, VOID, STASIS, STRAND }
 
-var request : Dictionary :
+var request : Memo :
 	set(value):
 		request = value
-		content.text = value["text"]
+		content.text = value.construct_string()
 
 var request_completed = false
 
@@ -32,7 +32,7 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	super(delta)
-	display_request(self.request["text"])
+	display_request(self.request.construct_string())
 	check_if_completed()
 	if self.request_completed:
 		delete_request()
@@ -52,7 +52,7 @@ func request_timeout():
 
 
 func check_if_completed():
-	if self.request["fulfilled"]:
+	if self.request.fulfilled:
 		request_completed = true
 
 

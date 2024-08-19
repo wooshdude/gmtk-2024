@@ -1,7 +1,18 @@
 extends Resource
 class_name Person
 
+enum Purity {
+	MAJOR_PURE,
+	MEDIUM_PURE,
+	MINOR_PURE,
+	NEUTRAL,
+	MINOR_SINNER,
+	MEDIUM_SINNER,
+	MAJOR_SINNER,
+}
+
 enum Trade {
+	NONE,
 	CARPENTER,
 	PRIEST,
 	PHAROH,
@@ -14,6 +25,7 @@ enum Trade {
 }
 
 enum Constellation {
+	NONE,
 	ARIES,
 	TAURUS,
 	GEMINI,
@@ -40,8 +52,29 @@ var Texture_Ref:Array = [
 	[25, 26, 27]
 ]
 
-@export var weight:float
+@export var answer:GodManager.Gods
+@export var purity: Purity
 @export var constellation:Constellation
 @export var trade:Trade
-@export var wealth:int
-@export_range(0,3) var belongings:int
+@export_multiline var dialogue:String
+@export var memos:Array[Request]
+@export_multiline var regulation:String
+
+var weight: float :
+	get():
+		match purity:
+			Purity.MAJOR_PURE:
+				return -1
+			Purity.MEDIUM_PURE:
+				return -0.5
+			Purity.MINOR_PURE:
+				return -0.2
+			Purity.NEUTRAL:
+				return 0
+			Purity.MINOR_SINNER:
+				return 0.2
+			Purity.MEDIUM_SINNER:
+				return 0.5
+			Purity.MAJOR_SINNER:
+				return 1
+		return 0

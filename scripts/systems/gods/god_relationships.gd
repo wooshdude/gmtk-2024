@@ -2,7 +2,7 @@ extends Node
 # God Relationship Singleton
 
 signal person_received(Person)
-
+const REQUEST_LIST = preload("res://scripts/systems/gods/RequestList.tres")
 const MEMO = preload("res://scenes/memo.tscn")
 
 enum Need {
@@ -12,59 +12,63 @@ enum Need {
 	WEALTH
 }
 
-static var RA = "Ra"
-static var ORISIS = "Orisis"
-static var SAVATHUN = "Savathun"
+enum Gods {
+	OSIRIS,    # good
+	ISIS,      # mid
+	SET        # bad
+}
 
 class God:
 	var name:String
-	var relationship:int
-	var current_task:Task
-
-
-class Task:
-	var num_people:int
-	var current_need:Need
-
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.is_action_pressed("ui_accept"):
-		var new_request = create_request(RA, Need.ZODIAC, Person.Constellation.ARIES)
-		var new_memo = MEMO.instantiate()
-		add_child(new_memo)
-		new_memo.request = new_request 
-
-
-func create_request(god_choice, stat_choice, stat_value_choice) -> Dictionary:
-	var god = god_choice                            ##TODO assign each variable with a value randomly (not sure how you wanted this Park, 
-	var stat = stat_choice                          ## but i figured you'd want to assign them outside of the memo itself, and then pass them to the memo)
-	var stat_value = stat_value_choice
+	var relationship:int = 10 : 
+		set(value):
+			if value - relationship > 0:
+				GlobalSignals.notification.emit("%s is pleased." % name)
+			if value - relationship < 0:
+				GlobalSignals.notification.emit("%s will remember this." % name)
+			print("%s' relationship updated by %s" % [self.name, value - relationship])
+	var purity_range:Array[float]
+	var appeased:bool = false
 	
-	var request = {
-		"god" : god,
-		"stat" : stat,
-		"stat_value" : stat_value,
-		"text" : construct_string(god, stat, stat_value),
-		"fulfilled" : false
-	}
-	return request
+	func _init(name:String, purity_range:Array[float]) -> void:
+		self.name = name
+		self.purity_range = purity_range
+
+var gods:Array[God] = [God.new("Osiris", [-1, -0.6]), God.new("Isis", [-0.5,0.5]), God.new("Set", [0.5,1])]
+
+func _ready() -> void:
+	GlobalSignals.next_person.connect(_on_next_person)
+
+func get_god(god_enum):
+	return gods[god_enum]
 
 
-func construct_string(god, stat:Need, stat_value) -> String:       ## Change Dialogue as needed, this is just filler
-	var str = ""                                              ## Dialogue is matched to the stat that has been requested
-	str += god                                                ## Use the capitalized words in the match function as a reference
-	str += " is looking for "
-	match stat:
-		Need.ZODIAC:
-			str += "someone who is a " + str(stat_value) + "."
-		Need.TRADE:
-			str += "someone who has " + str(stat_value) + " belongings."
-		Need.PURITY:
-			str += "someone who's heart weighs " + str(stat_value) + (" less " if stat_value < 0 else " more ") + "than a feather."
-		Need.WEALTH:
-			str += "someone who has " + str(stat_value) + " dollars." 
-	return str
-
-
-func receive_person(_god:Gods, person:Person):
+func receive_person(god:Gods, person:Person):
 	person_received.emit(person)
+
+	if person.memos.size() > 0:
+		for memo in person.memos:
+			get_god(memo.from).appeased = true
+			for m in memo.send_to:
+				if god == m:
+					get_god(memo.from).relationship += 2
+					break;
+				
+				get_god(memo.from).relationship -= 2
+	check_correct_god(person, god)
+
+
+func check_correct_god(person:Person, god:Gods):
+	var g = get_god(god)
+
+	if g.appeased: return
+	if person.answer == god:
+		g.relationship += 1
+	else:
+		get_god(person.answer).relationship -= 1
+		g.relationship -= 1
+
+
+func _on_next_person():
+	for god in gods:
+		god.appeased = false
