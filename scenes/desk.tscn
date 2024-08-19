@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=82 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
@@ -199,17 +199,6 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wmxtq"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_prgse"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("18_jljtp")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ltsd4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_24c3j"]
@@ -231,28 +220,6 @@ animations = [{
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gkf6h"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3sha"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_85vxr"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("19_jyts1")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0uux8"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("20_5kw0s")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="Desk" type="Node2D" node_paths=PackedStringArray("xray", "confines")]
 script = ExtResource("1_kqsai")
@@ -527,9 +494,11 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_2by1m")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_wmxtq")
 flat = true
 
-[node name="GoodStamp" type="AnimatedSprite2D" parent="."]
+[node name="GoodStamp" type="Sprite2D" parent="."]
 position = Vector2(355, 121)
-sprite_frames = SubResource("SpriteFrames_prgse")
+texture = ExtResource("18_jljtp")
+script = ExtResource("7_l0jto")
+type = 4
 
 [node name="Button" type="Button" parent="GoodStamp"]
 offset_left = -9.0
@@ -548,9 +517,11 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_i8phi")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gkf6h")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_b3sha")
 
-[node name="MidStamp" type="AnimatedSprite2D" parent="."]
+[node name="MidStamp" type="Sprite2D" parent="."]
 position = Vector2(355, 153)
-sprite_frames = SubResource("SpriteFrames_85vxr")
+texture = ExtResource("19_jyts1")
+script = ExtResource("7_l0jto")
+type = 4
 
 [node name="Button2" type="Button" parent="MidStamp"]
 offset_left = -9.0
@@ -570,9 +541,11 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gkf6h")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_b3sha")
 flat = true
 
-[node name="BadStamp" type="AnimatedSprite2D" parent="."]
+[node name="BadStamp" type="Sprite2D" parent="."]
 position = Vector2(355, 185)
-sprite_frames = SubResource("SpriteFrames_0uux8")
+texture = ExtResource("20_5kw0s")
+script = ExtResource("7_l0jto")
+type = 4
 
 [node name="Button3" type="Button" parent="BadStamp"]
 offset_left = -9.0
