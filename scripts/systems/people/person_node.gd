@@ -3,8 +3,10 @@ class_name PersonNode
 @onready var person_texture: AnimatedSprite2D = $PersonTexture
 @onready var dialogue: Control = $CanvasLayer/Dialogue
 
-var elasped:float = 0
+var elapsed:float = 0
+var elapse_speed = 20
 var xray:Node2D
+var tween:Tween
 
 @export var person_data:Person :
 	set(value):
@@ -18,10 +20,12 @@ func _ready() -> void:
 	GlobalSignals.damn.connect(_on_damned)
 	person_texture.play("default")
 	position = Vector2(-64, get_viewport_rect().size.y /2)
-	var new_tween := create_tween()
-	new_tween.tween_property(self, "position", Vector2(get_viewport_rect().size.x /2, position.y), 1.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-	new_tween.finished.connect(_on_tween_finished)
-	await new_tween.finished
+	tween = create_tween()
+	tween.tween_property(self, "position", Vector2(get_viewport_rect().size.x /2, position.y), 1.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	tween.set_parallel()
+	tween.tween_property(self, "elapse_speed", 2, 1).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN).set_delay(0.4)
+	tween.finished.connect(_on_tween_finished)
+	await tween.finished
 	dialogue.start(person_data.dialogue)
 	if person_data.memos.size() > 0:
 		for memo in person_data.memos:
@@ -30,6 +34,9 @@ func _ready() -> void:
 		GlobalSignals.notification.emit("A new regulation has appeared!")
 		GlobalSignals.regulation.emit(person_data.regulation)
 
+func _process(delta: float) -> void:
+	elapsed += delta * elapse_speed
+	person_texture.offset.y = sin(elapsed)*3
 
 func display_items():
 	if person_data.trade != Person.Trade.NONE:
@@ -67,10 +74,12 @@ func _on_damned():
 	_on_person_left()
 
 func _on_dismissed():
-	
-	var new_tween := create_tween()
-	new_tween.tween_property(self, "position", Vector2(get_viewport_rect().size.x + 64, position.y), 1.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
-	new_tween.finished.connect(_on_person_left)
+	if tween: tween.stop()
+	tween = create_tween()
+	tween.tween_property(self, "position", Vector2(get_viewport_rect().size.x + 64, position.y), 1.5).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN_OUT)
+	tween.set_parallel()
+	tween.tween_property(self, "elapse_speed", 20, 1).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+	tween.finished.connect(_on_person_left)
 
 
 func _on_tween_finished():
