@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbotdq4r2ruwq"]
+
+[ext_resource type="Texture2D" uid="uid://icmlwdypchsg" path="res://assets/sprites/stamp_imprint_1.png" id="1_ene3n"]
+[ext_resource type="Texture2D" uid="uid://cb2jp300h3mam" path="res://assets/sprites/stamp_imprint_2.png" id="2_0w2bn"]
+[ext_resource type="Texture2D" uid="uid://bfccd348281tw" path="res://assets/sprites/stamp_imprint_3.png" id="3_eoct0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nmqd2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0w2bn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_eoct0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ene3n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="Imprint" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_nmqd2")

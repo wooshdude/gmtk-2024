@@ -18,6 +18,12 @@ enum Gods {
 	SET        # bad
 }
 
+var god_colors:Array[Color] = [
+	Color('#2ea340'),
+	Color('#ffa214'),
+	Color('#db4949')
+]
+
 class God:
 	var name:String
 	var relationship:int = 10 : 

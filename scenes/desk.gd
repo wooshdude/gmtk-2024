@@ -1,6 +1,7 @@
 extends Node2D
 
 const PERSON = preload("res://scenes/person.tscn")
+var imprint_scene = preload("res://scenes/imprint.tscn")
 @export var people_list:PeopleList
 @export var xray:Node2D
 @export var confines:Sprite2D
@@ -44,6 +45,11 @@ func _on_stamped(god):
 	if(allow_judgement):
 		GlobalSignals.dismiss.emit()
 		GodManager.receive_person(god, current_person.person_data)
+		var imprint:AnimatedSprite2D = imprint_scene.instantiate()
+		GrabManager.heart.add_child(imprint)
+		imprint.frame = god
+		imprint.modulate = GodManager.god_colors[god]
+		imprint.position = Vector2.ZERO
 	
 
 #func _on_good_button_pressed() -> void:

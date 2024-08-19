@@ -8,7 +8,7 @@ var grab_z = 4
 var last_grab_z = 3
 var stamp_z = 5
 var heart:Draggable
-var heart_radius = 5
+var heart_radius = 20
 
 
 var objects:Array[Draggable] = []

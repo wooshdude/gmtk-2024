@@ -2,6 +2,7 @@ extends Node2D
 class_name PersonNode
 @onready var person_texture: AnimatedSprite2D = $PersonTexture
 @onready var dialogue: Control = $CanvasLayer/Dialogue
+@onready var constellation: AnimatedSprite2D = $PersonCopy/XrayInsides/Const
 
 var elapsed:float = 0
 var elapse_speed = 20
@@ -18,6 +19,7 @@ var heart:Draggable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	constellation.frame = person_data.constellation
 	GlobalSignals.dismiss.connect(_on_dismissed)
 	GlobalSignals.damn.connect(_on_damned)
 	person_texture.play("default")

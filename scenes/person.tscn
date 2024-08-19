@@ -343,18 +343,17 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6t8gj")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_13k34")
 
 [node name="PersonCopy" type="AnimatedSprite2D" parent="."]
-visible = false
 clip_children = 2
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_tre03")
 script = ExtResource("3_6f1ub")
 
 [node name="XrayInsides" type="BackBufferCopy" parent="PersonCopy"]
-visible = false
 position = Vector2(3, -11)
 copy_mode = 0
 
 [node name="XrayBG" type="TextureRect" parent="PersonCopy/XrayInsides"]
+modulate = Color(0.619846, 0.476943, 0.627205, 1)
 texture_repeat = 2
 material = SubResource("ShaderMaterial_froxh")
 anchors_preset = 8
@@ -374,7 +373,6 @@ stretch_mode = 1
 
 [node name="Const" type="AnimatedSprite2D" parent="PersonCopy/XrayInsides"]
 modulate = Color(0.384365, 0.819491, 0.719755, 1)
-scale = Vector2(1.53, 1.53)
 sprite_frames = ExtResource("6_4u6xm")
 script = ExtResource("7_878vq")
 

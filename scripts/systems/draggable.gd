@@ -80,13 +80,10 @@ func drag():
 				if tween: tween.stop()
 				tween = create_tween()
 				tween.tween_property(self, "offset", Vector2(0, -30).rotated(-global_rotation), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-			
 			#GrabManager.grabbed_object = self
 		#TODO ADD SFX
 	if self.grabbed and Input.is_action_just_released("CLICK"):
 		grabbed = false
-		if self.type == ItemType.STAMP and GrabManager.on_heart(self):
-			GlobalSignals.stamped.emit(god)
 		
 		if pick_animation.has(self.type):
 			if tween: tween.stop()
@@ -94,6 +91,8 @@ func drag():
 			tween.tween_property(self, "offset", Vector2.ZERO, 0.7).set_trans(Tween.TRANS_SPRING if self.type != ItemType.BELONGING else Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 			await tween.finished
 			dropped = true
+			if self.type == ItemType.STAMP and GrabManager.on_heart(self):
+				GlobalSignals.stamped.emit(god)
 		#GrabManager.grabbed_object = null
 		#TODO ADD SFX
 
