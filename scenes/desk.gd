@@ -19,6 +19,7 @@ func _ready() -> void:
 	GlobalSignals.next_person.connect(_on_next_person)
 	GlobalSignals.next_person.emit()
 	GlobalSignals.person_ready.connect(_on_person_ready)
+	GlobalSignals.stamped.connect(_on_stamped)
 	GrabManager.confines = confines
 
 
@@ -39,6 +40,11 @@ func _on_next_person():
 func _on_person_ready():
 	allow_judgement = true
 
+func _on_stamped(god):
+	if(allow_judgement):
+		GlobalSignals.dismiss.emit()
+		GodManager.receive_person(god, current_person.person_data)
+	
 
 #func _on_good_button_pressed() -> void:
 	#print('good')

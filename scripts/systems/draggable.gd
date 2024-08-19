@@ -86,7 +86,7 @@ func drag():
 	if self.grabbed and Input.is_action_just_released("CLICK"):
 		grabbed = false
 		if self.type == ItemType.STAMP and GrabManager.on_heart(self):
-			
+			GlobalSignals.stamped.emit(god)
 		
 		if pick_animation.has(self.type):
 			if tween: tween.stop()
