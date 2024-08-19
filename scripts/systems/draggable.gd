@@ -1,12 +1,14 @@
 extends Sprite2D
 class_name Draggable
 
+var shadow_scene = preload("res://scenes/item_shadow.tscn")
+
 @export var return_when_dropped:bool = false
-var start_position
 
 enum ItemType { HEART, BELONGING, MEMO, FLASHLIGHT, STAMP }
 @export var type : ItemType
 
+var start_position
 var hovered = false
 var grabbed = false
 @export var disabled = false
@@ -14,10 +16,18 @@ var grabbed = false
 var square_distance
 var tween:Tween
 
+var shadow:Sprite2D
+
+var pick_animation = [ItemType.HEART, ItemType.STAMP, ItemType.BELONGING]
+
 func _ready() -> void:
 	start_position = position
 	GrabManager.add_object(self)
 	self.tree_exiting.connect(_on_tree_exiting)
+	if pick_animation.has(self.type):
+		shadow = shadow_scene.instantiate()
+		add_child(shadow)
+		shadow.position.y += 3
 	
 
 
@@ -41,10 +51,19 @@ func drag():
 	if self.hovered and Input.is_action_just_pressed("CLICK"):
 		if GrabManager.check_can_drag(self):
 			grabbed = true
+			if pick_animation.has(self.type):
+				if tween: tween.stop()
+				tween = create_tween()
+				tween.tween_property(self, "offset", Vector2(0, -30).rotated(-global_rotation), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+			
 			#GrabManager.grabbed_object = self
 		#TODO ADD SFX
 	if self.grabbed and Input.is_action_just_released("CLICK"):
 		grabbed = false
+		if pick_animation.has(self.type):
+			if tween: tween.stop()
+			tween = create_tween()
+			tween.tween_property(self, "offset", Vector2.ZERO, 0.7).set_trans(Tween.TRANS_SPRING if self.type == ItemType.HEART else Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 		#GrabManager.grabbed_object = null
 		#TODO ADD SFX
 

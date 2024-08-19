@@ -1,0 +1,16 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvk6nnogbawp6"]
+
+[ext_resource type="Shader" path="res://assets/shaders/shadow.gdshader" id="1_4jwr6"]
+[ext_resource type="Texture2D" uid="uid://dm4t8i4wba251" path="res://icon.svg" id="2_xmeon"]
+[ext_resource type="Script" path="res://scripts/ui/item_shadow.gd" id="3_o7kyd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fw7gr"]
+shader = ExtResource("1_4jwr6")
+shader_parameter/color = Color(0.0313726, 0.0901961, 0.168627, 0.631373)
+
+[node name="ItemShadow" type="Sprite2D"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_fw7gr")
+texture = ExtResource("2_xmeon")
+region_rect = Rect2(0, 0, 40.3022, 35.7202)
+script = ExtResource("3_o7kyd")
