@@ -1,7 +1,10 @@
-[gd_resource type="Theme" load_steps=8 format=3 uid="uid://dnk0uqvjlp3v0"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dnk0uqvjlp3v0"]
 
 [ext_resource type="FontFile" uid="uid://deuvnxihu7d2v" path="res://assets/fonts/Scrambled_Eggs.ttf" id="1_2jkpb"]
 [ext_resource type="FontFile" uid="uid://dwsh0lhudro8k" path="res://assets/fonts/quaver.ttf" id="2_rho0d"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltjmo"]
+bg_color = Color(0.0666667, 0.0666667, 0.0666667, 1)
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_s6da8"]
 color = Color(0.0901961, 0.101961, 0.219608, 1)
@@ -25,6 +28,7 @@ Button/fonts/font = ExtResource("1_2jkpb")
 Label/colors/font_color = Color(0.0901961, 0.101961, 0.219608, 1)
 Label/font_sizes/font_size = 8
 Label/fonts/font = ExtResource("2_rho0d")
+Panel/styles/panel = SubResource("StyleBoxFlat_ltjmo")
 RichTextLabel/font_sizes/normal_font_size = 8
 RichTextLabel/fonts/normal_font = ExtResource("2_rho0d")
 TabContainer/fonts/font = ExtResource("1_2jkpb")

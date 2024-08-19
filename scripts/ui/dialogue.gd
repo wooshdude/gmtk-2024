@@ -1,7 +1,10 @@
 extends Control
 
 @export_multiline var text:String
-@onready var rich_text_label: RichTextLabel = $Panel/MarginContainer/RichTextLabel
+@onready var rich_text_label: RichTextLabel = $RichTextLabel
+@onready var panel_2: Panel = $Panel2
+@onready var panel: Panel = $RichTextLabel/Panel
+
 
 signal finished
 
@@ -11,6 +14,9 @@ func _ready():
 	hide()
 	finished.connect(_on_finished)
 
+func _process(delta: float) -> void:
+	panel_2.size = panel.size + Vector2(10,10)
+	panel_2.position = Vector2(-5,-5)
 
 func start(text:String = ""):
 	if playing: return
