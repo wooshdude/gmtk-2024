@@ -11,6 +11,7 @@ var last_grab_z = 3
 var objects:Array[Draggable] = []
 
 func check_can_drag(object:Draggable) -> bool:
+	if object.disabled: return false
 	for o in objects:
 		if (o.grabbed or o.square_distance < object.square_distance) and o != object:
 			return false

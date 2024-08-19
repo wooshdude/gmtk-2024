@@ -22,13 +22,23 @@ var pick_animation = [ItemType.HEART, ItemType.STAMP, ItemType.BELONGING]
 
 func _ready() -> void:
 	start_position = position
-	GrabManager.add_object(self)
 	self.tree_exiting.connect(_on_tree_exiting)
+	GrabManager.add_object(self)
+	
 	if pick_animation.has(self.type):
+		disabled = true
+		modulate = Color(1, 0.1, 0.1, 0)
 		shadow = shadow_scene.instantiate()
 		add_child(shadow)
 		shadow.global_position.y += 3
-	
+		
+		if tween: tween.stop()
+		tween =  create_tween()
+		var delay = randf() * 2
+		tween.tween_property(self, "modulate:a", 1, 0.8).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+		tween.parallel().tween_property(self, "modulate",  Color(1, 1, 1), 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO).set_delay(0.05)
+		await tween.finished
+		disabled = false
 
 
 func _physics_process(delta: float) -> void:
@@ -85,6 +95,13 @@ func check_hovered():
 	else:
 		hovered = false
 
+func remove():
+	disabled = true
+	if tween: tween.stop()
+	tween =  create_tween()
+	tween.tween_property(self, "modulate:a", 0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+	
 
 func _on_tree_exiting():
 	GrabManager.remove_object(self)
+	pass

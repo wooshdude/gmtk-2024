@@ -7,6 +7,7 @@ var elapsed:float = 0
 var elapse_speed = 20
 var xray:Node2D
 var tween:Tween
+var items:Array[Draggable] = []
 
 @export var person_data:Person :
 	set(value):
@@ -45,6 +46,7 @@ func display_items():
 			new_item.type = Draggable.ItemType.BELONGING
 			new_item.texture = load("res://assets/sprites/belongings/pick_up_" + str(person_data.Texture_Ref[person_data.trade][i]) + ".png")
 			add_child(new_item)
+			items.append(new_item)
 	
 	var new_heart = create_draggable()
 	new_heart.texture = load("res://assets/sprites/animated_heart/animated_heart.tres")
@@ -52,6 +54,7 @@ func display_items():
 	new_heart.weight = person_data.weight
 	new_heart.rotation = 0
 	add_child(new_heart)
+	items.append(new_heart)
 		
 
 func create_draggable() -> Draggable:
@@ -70,6 +73,7 @@ func create_draggable() -> Draggable:
 
 func _on_damned():
 	self.person_texture.play("attacked")
+	remove_items()
 	await person_texture.animation_finished
 	_on_person_left()
 
@@ -80,6 +84,8 @@ func _on_dismissed():
 	tween.set_parallel()
 	tween.tween_property(self, "elapse_speed", 20, 1).set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	tween.finished.connect(_on_person_left)
+	remove_items()
+	
 
 
 func _on_tween_finished():
@@ -97,6 +103,9 @@ func _on_person_left():
 	GlobalSignals.next_person.emit()
 	self.queue_free()
 
+func remove_items():
+	for item in items:
+		item.remove()
 
 func _on_button_pressed() -> void:
 	if not dialogue.playing and not dialogue.visible:

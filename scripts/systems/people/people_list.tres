@@ -174,5 +174,5 @@ regulation = "The soul of a Pharoh is a coveted gift"
 
 [resource]
 script = ExtResource("2_rvh6s")
-start = 0
+start = 4
 people = Array[ExtResource("1_720wt")]([SubResource("Resource_16kq3"), SubResource("Resource_j7ane"), SubResource("Resource_4wodv"), SubResource("Resource_lnl6l"), SubResource("Resource_6sc3p"), SubResource("Resource_vrp6j"), SubResource("Resource_fldcn"), SubResource("Resource_vs3nv"), SubResource("Resource_nyhxu"), SubResource("Resource_vkf51"), SubResource("Resource_mf5p0"), SubResource("Resource_8aue8")])
