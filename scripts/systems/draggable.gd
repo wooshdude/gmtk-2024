@@ -29,6 +29,7 @@ var pick_animation = [ItemType.HEART, ItemType.STAMP, ItemType.BELONGING]
 func _ready() -> void:
 	start_position = position
 	self.tree_exiting.connect(_on_tree_exiting)
+	if self.type == ItemType.HEART: GlobalSignals.stamped.connect(_stamped)
 	GrabManager.add_object(self)
 	
 	if pick_animation.has(self.type) : add_shadow()
@@ -88,7 +89,14 @@ func drag():
 		if pick_animation.has(self.type):
 			if tween: tween.stop()
 			tween = create_tween()
-			tween.tween_property(self, "offset", Vector2.ZERO, 0.7).set_trans(Tween.TRANS_SPRING if self.type != ItemType.BELONGING else Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+			match type:
+				ItemType.HEART : tween.tween_property(self, "offset", Vector2.ZERO, 0.7).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_OUT)
+				ItemType.STAMP : 
+					tween.tween_property(self, "offset", Vector2(0, 4), 0.7).set_trans(Tween.TRANS_EXPO).set_ease(Tween.EASE_IN)
+					tween.tween_property(self, "offset", Vector2(randf_range(-2, 2), 2), 0.2).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN)
+					tween.tween_property(self, "offset", Vector2(randf_range(-2, 2), 0), 0.2).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN)
+					tween.tween_property(self, "offset", Vector2(0, 0), 0.2).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN)
+				var default : tween.tween_property(self, "offset", Vector2.ZERO, 0.7).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 			await tween.finished
 			dropped = true
 			if self.type == ItemType.STAMP and GrabManager.on_heart(self):
@@ -124,6 +132,11 @@ func remove():
 	if tween: tween.stop()
 	tween =  create_tween()
 	tween.tween_property(self, "modulate:a", 0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
+
+func _stamped(god):
+	if tween: tween.stop()
+	tween =  create_tween()
+	tween.tween_property(self, "position:y", 256, 0.9).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUINT).set_delay(0.5)
 	
 
 func _on_tree_exiting():
