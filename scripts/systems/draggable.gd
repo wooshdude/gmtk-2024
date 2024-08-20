@@ -22,7 +22,12 @@ var grabbed = false:
 var square_distance
 var tween:Tween
 
+var just_grabbed: bool
+
 var shadow:Sprite2D
+
+signal is_dropped
+signal is_grabbed
 
 var pick_animation = [ItemType.HEART, ItemType.STAMP, ItemType.BELONGING]
 
@@ -49,6 +54,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	square_distance = (get_global_mouse_position() - global_position).length_squared()
 	z_index = get_grab_z()
+	
+	if grabbed and not just_grabbed:
+		is_grabbed.emit()
+		just_grabbed = true
+	if not grabbed and just_grabbed:
+		just_grabbed = false
+		is_dropped.emit()
 	
 
 func _physics_process(delta: float) -> void:
@@ -97,6 +109,7 @@ func drag():
 					tween.tween_property(self, "offset", Vector2(randf_range(-2, 2), 2), 0.2).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN)
 					tween.tween_property(self, "offset", Vector2(randf_range(-2, 2), 0), 0.2).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN)
 					tween.tween_property(self, "offset", Vector2(0, 0), 0.2).set_trans(Tween.TRANS_SPRING).set_ease(Tween.EASE_IN)
+					GlobalSignals.stamping.emit()
 				var default : tween.tween_property(self, "offset", Vector2.ZERO, 0.7).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
 			await tween.finished
 			dropped = true
@@ -140,7 +153,6 @@ func _stamped(god):
 	if tween: tween.stop()
 	tween =  create_tween()
 	tween.tween_property(self, "position:y", 256, 0.9).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUINT).set_delay(0.5)
-	
 
 func _on_tree_exiting():
 	GrabManager.remove_object(self)

@@ -3,6 +3,7 @@ class_name PersonNode
 @onready var person_texture: AnimatedSprite2D = $PersonTexture
 @onready var dialogue: Control = $CanvasLayer/Dialogue
 @onready var constellation: AnimatedSprite2D = $PersonCopy/XrayInsides/Const
+@onready var sound_component: SoundComponent = $SoundComponent
 
 var elapsed:float = 0
 var elapse_speed = 20
@@ -19,7 +20,12 @@ var heart:Draggable
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	constellation.frame = person_data.constellation
+	if person_data.constellation > 0:
+		constellation.show()
+		constellation.frame = person_data.constellation - 1
+	else:
+		constellation.hide()
+	
 	GlobalSignals.dismiss.connect(_on_dismissed)
 	GlobalSignals.damn.connect(_on_damned)
 	person_texture.play("default")
@@ -47,7 +53,7 @@ func display_items():
 		for i in range(3):
 			var new_item = create_draggable()
 			new_item.type = Draggable.ItemType.BELONGING
-			new_item.texture = load("res://assets/sprites/belongings/pick_up_" + str(person_data.Texture_Ref[person_data.trade][i]) + ".png")
+			new_item.texture = load("res://assets/sprites/belongings/pick_up_" + str(person_data.Texture_Ref[person_data.trade][i]-3) + ".png")
 			add_child(new_item)
 			items.append(new_item)
 	
@@ -57,7 +63,6 @@ func display_items():
 	heart.weight = person_data.weight
 	heart.rotation = 0
 	add_child(heart)
-		
 
 func create_draggable() -> Draggable:
 	var new_item = Draggable.new()
@@ -78,6 +83,7 @@ func _on_damned():
 	remove_items()
 	await person_texture.animation_finished
 	_on_person_left()
+
 
 func _on_dismissed():
 	if tween: tween.stop()

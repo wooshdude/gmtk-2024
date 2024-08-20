@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 	offset = person_texture.offset
 	if person.xray is Node2D:
 		xray_insides.visible = not person.xray.disabled
+	offset = person_texture.offset
 
 func _on_texture_changed():
 	sprite_frames = person_texture.sprite_frames

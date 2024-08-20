@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("1_jtuc4")
-weight = 3
+answer = 0
+purity = 0
 constellation = 3
 trade = 3
 dialogue = "Hi- um... / I think I died?"
 memos = Array[ExtResource("1_r14t6")]([null])
+regulation = ""

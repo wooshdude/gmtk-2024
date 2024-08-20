@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=124 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
@@ -6,7 +6,6 @@
 [ext_resource type="Theme" uid="uid://dnk0uqvjlp3v0" path="res://assets/default_theme.tres" id="3_71q6f"]
 [ext_resource type="Texture2D" uid="uid://tvw8woyr8x0v" path="res://assets/sprites/background1.png" id="3_ywjfx"]
 [ext_resource type="Texture2D" uid="uid://cnkah85th3pah" path="res://assets/sprites/scale/base.png" id="5_qrmuc"]
-[ext_resource type="PackedScene" uid="uid://3mcrgihku5cu" path="res://scripts/ui/god_list.tscn" id="5_vsu0u"]
 [ext_resource type="Script" path="res://scripts/ui/scale.gd" id="6_is8gj"]
 [ext_resource type="Texture2D" uid="uid://cvndvpuqaq6ax" path="res://assets/sprites/desk1.png" id="6_tnd2v"]
 [ext_resource type="Texture2D" uid="uid://b6marijgfju2o" path="res://assets/sprites/flashlight1.png" id="6_yj0g3"]
@@ -15,12 +14,45 @@
 [ext_resource type="Script" path="res://scripts/systems/draggable.gd" id="7_l0jto"]
 [ext_resource type="Texture2D" uid="uid://c16d4p14olnf3" path="res://assets/sprites/scale/cup_2.png" id="8_u5i0x"]
 [ext_resource type="Texture2D" uid="uid://q6aejrqu8g15" path="res://assets/sprites/scale/cup_1.png" id="9_nrywn"]
-[ext_resource type="Texture2D" uid="uid://ia30eql5yqbk" path="res://assets/sprites/feather.png" id="10_vadrd"]
+[ext_resource type="Texture2D" uid="uid://jcrws1vxge7g" path="res://assets/sprites/feather.png" id="10_vadrd"]
 [ext_resource type="Script" path="res://scripts/ui/xray/xray_transform.gd" id="12_q4x0c"]
 [ext_resource type="Texture2D" uid="uid://cj2ln7rdio0h6" path="res://assets/sprites/bookui.png" id="17_i7hiq"]
 [ext_resource type="Texture2D" uid="uid://b6w160w7hn2mx" path="res://assets/sprites/stamp2.png" id="18_jljtp"]
+[ext_resource type="Script" path="res://scripts/ui/god_list.gd" id="18_maq8c"]
+[ext_resource type="Texture2D" uid="uid://dqhv0gmhsvihu" path="res://assets/sprites/gods.png" id="19_7b62w"]
 [ext_resource type="Texture2D" uid="uid://dhrr5ywkhkku2" path="res://assets/sprites/stamp3.png" id="19_jyts1"]
 [ext_resource type="Texture2D" uid="uid://lvprjsymuyyj" path="res://assets/sprites/stamp1.png" id="20_5kw0s"]
+[ext_resource type="FontFile" uid="uid://deuvnxihu7d2v" path="res://assets/fonts/Scrambled_Eggs.ttf" id="20_r40hu"]
+[ext_resource type="FontFile" uid="uid://bb8lug1kcets" path="res://assets/fonts/Whacky_Joe.ttf" id="21_hwehb"]
+[ext_resource type="AudioStream" uid="uid://b7ny64563bitg" path="res://assets/sounds/Bgmusic+ambience.mp3" id="22_0s4xp"]
+[ext_resource type="Texture2D" uid="uid://mlmb0pyyk72k" path="res://assets/sprites/constellations/constellation_3.png" id="22_m4844"]
+[ext_resource type="Script" path="res://scripts/systems/components/sound_component.gd" id="23_bwx3i"]
+[ext_resource type="Texture2D" uid="uid://dvthf82j4q5ml" path="res://assets/sprites/constellations/constellation_2.png" id="23_u7c7r"]
+[ext_resource type="Texture2D" uid="uid://bqbfmgk0flksh" path="res://assets/sprites/constellations/constellation_1.png" id="24_bej12"]
+[ext_resource type="Script" path="res://scripts/systems/components/sound.gd" id="24_hoovg"]
+[ext_resource type="AudioStream" uid="uid://d2cnwb4w3puco" path="res://assets/sounds/book pick up 2.wav" id="25_0ig8l"]
+[ext_resource type="Texture2D" uid="uid://cjhwqtba2ek16" path="res://assets/sprites/constellations/constellation_7.png" id="25_yyg8h"]
+[ext_resource type="Texture2D" uid="uid://bdaoimn3wbs8h" path="res://assets/sprites/constellations/constellation_8.png" id="26_b541b"]
+[ext_resource type="AudioStream" uid="uid://c4e58tlokw18v" path="res://assets/sounds/book pick up 3.wav" id="26_nw6xu"]
+[ext_resource type="Texture2D" uid="uid://dr7dogyuinydr" path="res://assets/sprites/constellations/constellation_9.png" id="27_4h77p"]
+[ext_resource type="AudioStream" uid="uid://he5rvamwfv0h" path="res://assets/sounds/book pick up 4.wav" id="27_w8eh6"]
+[ext_resource type="Texture2D" uid="uid://6sp31slsltf2" path="res://assets/sprites/constellations/constellation_10.png" id="28_3jbpy"]
+[ext_resource type="AudioStream" uid="uid://brjr8ardnudag" path="res://assets/sounds/book pick up 1.wav" id="28_utfli"]
+[ext_resource type="AudioStream" uid="uid://cxv7en07dncle" path="res://assets/sounds/book pick up 5.wav" id="29_82vty"]
+[ext_resource type="Texture2D" uid="uid://dbwdijbjk4max" path="res://assets/sprites/constellations/constellation_11.png" id="29_y2xee"]
+[ext_resource type="Texture2D" uid="uid://7e4sgdsio03g" path="res://assets/sprites/constellations/constellation_12.png" id="30_72yck"]
+[ext_resource type="AudioStream" uid="uid://bmebqriujarwq" path="res://assets/sounds/metal button 1.wav" id="30_npdlf"]
+[ext_resource type="AudioStream" uid="uid://bvd2dwoe1jk0o" path="res://assets/sounds/metal button 2.wav" id="31_e5w1q"]
+[ext_resource type="Texture2D" uid="uid://dofo1ov11rgcp" path="res://assets/sprites/constellations/constellation_6.png" id="31_se1xq"]
+[ext_resource type="AudioStream" uid="uid://15ou4pevvqps" path="res://assets/sounds/metal button 3.wav" id="32_7yooc"]
+[ext_resource type="Texture2D" uid="uid://dkvhb1kuc3wg" path="res://assets/sprites/constellations/constellation_5.png" id="32_w8ka3"]
+[ext_resource type="AudioStream" uid="uid://63hs5us0u85y" path="res://assets/sounds/step stool opened 4.wav" id="33_4v5cm"]
+[ext_resource type="Texture2D" uid="uid://cdixv5oxnil3j" path="res://assets/sprites/constellations/constellation_4.png" id="33_c65xc"]
+[ext_resource type="AudioStream" uid="uid://bulh3g26x0vs1" path="res://assets/sounds/step stool opened 5.wav" id="34_8xx13"]
+[ext_resource type="AudioStream" uid="uid://bcphd61ry0qyl" path="res://assets/sounds/step stool opened 6.wav" id="35_c05n1"]
+[ext_resource type="AudioStream" uid="uid://ndvl83fy55m8" path="res://assets/sounds/punch soft thud 1.wav" id="38_2y5gg"]
+[ext_resource type="AudioStream" uid="uid://bl8vg27ivo6ef" path="res://assets/sounds/punch soft thud 2.wav" id="39_cpxa0"]
+[ext_resource type="AudioStream" uid="uid://cqg5enfea5kun" path="res://assets/sounds/punch soft thud 3.wav" id="40_jevot"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j7ldr"]
 size = Vector2(32, 32)
@@ -156,6 +188,22 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7aggm"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_ntbrp"]
+font = ExtResource("20_r40hu")
+font_color = Color(0.0901961, 0.101961, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e0ym8"]
+font = ExtResource("20_r40hu")
+font_color = Color(0.0901961, 0.101961, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2rel4"]
+font = ExtResource("20_r40hu")
+font_color = Color(0.0901961, 0.101961, 0.219608, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_0h2do"]
+font = ExtResource("21_hwehb")
+font_color = Color(0.0898756, 0.10161, 0.219333, 1)
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pu2w4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7vop7"]
@@ -222,6 +270,36 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b3sha"]
 
+[sub_resource type="Resource" id="Resource_lu6bo"]
+script = ExtResource("24_hoovg")
+sound_name = "book_open"
+sounds = Array[AudioStream]([ExtResource("25_0ig8l"), ExtResource("26_nw6xu"), ExtResource("27_w8eh6")])
+volume_db = 0.0
+
+[sub_resource type="Resource" id="Resource_tamhl"]
+script = ExtResource("24_hoovg")
+sound_name = "book_close"
+sounds = Array[AudioStream]([ExtResource("28_utfli"), ExtResource("29_82vty")])
+volume_db = 0.0
+
+[sub_resource type="Resource" id="Resource_phxdp"]
+script = ExtResource("24_hoovg")
+sound_name = "flashlight_grab"
+sounds = Array[AudioStream]([ExtResource("30_npdlf"), ExtResource("31_e5w1q"), ExtResource("32_7yooc")])
+volume_db = 0.0
+
+[sub_resource type="Resource" id="Resource_nusir"]
+script = ExtResource("24_hoovg")
+sound_name = "flashlight_drop"
+sounds = Array[AudioStream]([ExtResource("33_4v5cm"), ExtResource("34_8xx13"), ExtResource("35_c05n1")])
+volume_db = 0.0
+
+[sub_resource type="Resource" id="Resource_mh7et"]
+script = ExtResource("24_hoovg")
+sound_name = "stamp"
+sounds = Array[AudioStream]([ExtResource("38_2y5gg"), ExtResource("39_cpxa0"), ExtResource("40_jevot")])
+volume_db = -10.0
+
 [node name="Desk" type="Node2D" node_paths=PackedStringArray("xray", "confines")]
 script = ExtResource("1_kqsai")
 people_list = ExtResource("2_e5y2o")
@@ -274,7 +352,7 @@ offset = Vector2(0, 15)
 
 [node name="Feather" type="Sprite2D" parent="Scale/Fulcrum/CupL"]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(0, 21)
+position = Vector2(0, 25)
 texture = ExtResource("10_vadrd")
 
 [node name="Path2D" type="Path2D" parent="."]
@@ -352,7 +430,6 @@ flat = true
 metadata/_edit_group_ = true
 
 [node name="BookGUI" type="MarginContainer" parent="CanvasLayer/Control"]
-visible = false
 z_index = 3
 layout_mode = 1
 anchors_preset = 15
@@ -392,19 +469,81 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_7aggm")
 current_tab = 1
 tabs_visible = false
 
-[node name="Gods" parent="CanvasLayer/Control/BookGUI/Book/TabContainer" instance=ExtResource("5_vsu0u")]
+[node name="Gods" type="Control" parent="CanvasLayer/Control/BookGUI/Book/TabContainer"]
 visible = false
 layout_mode = 2
+script = ExtResource("18_maq8c")
+metadata/_edit_group_ = true
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods" index="1"]
-offset_right = -133.0
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 12.5
+offset_right = -136.0
+offset_bottom = -8.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_7b62w")
+stretch_mode = 2
 
-[node name="ScrollContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods" index="3"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods"]
+layout_mode = 2
+offset_left = 65.0
+offset_top = 128.0
+offset_right = 117.0
+offset_bottom = 148.0
+text = "Osiris"
+label_settings = SubResource("LabelSettings_ntbrp")
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods"]
+layout_mode = 2
+offset_left = 72.0
+offset_top = 27.0
+offset_right = 110.0
+offset_bottom = 47.0
+text = "Isis
+"
+label_settings = SubResource("LabelSettings_e0ym8")
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods"]
+layout_mode = 2
+offset_left = 74.0
+offset_top = 78.0
+offset_right = 105.0
+offset_bottom = 98.0
+text = "Set
+"
+label_settings = SubResource("LabelSettings_2rel4")
+
+[node name="Title2" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods"]
+layout_mode = 0
+offset_left = 138.0
+offset_top = 4.0
+offset_right = 261.0
+offset_bottom = 26.0
+text = "Memos"
+label_settings = SubResource("LabelSettings_0h2do")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods"]
+layout_mode = 2
 offset_left = 150.0
-offset_top = 9.0
+offset_top = 30.0
 offset_right = 255.0
 offset_bottom = 158.0
+horizontal_scroll_mode = 0
+
+[node name="Memos" type="VBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_71q6f")
+theme_override_constants/separation = 25
 
 [node name="Info" type="Control" parent="CanvasLayer/Control/BookGUI/Book/TabContainer"]
 layout_mode = 2
@@ -420,13 +559,166 @@ offset_top = 9.0
 offset_right = -138.0
 offset_bottom = -9.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Title" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -5.0
+offset_right = 124.0
+offset_bottom = 17.0
+text = "Zodiacs"
+label_settings = SubResource("LabelSettings_0h2do")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 22.0
+offset_right = 117.0
+offset_bottom = 150.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("22_m4844")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Aries"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("23_u7c7r")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Taurus
+"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("24_bej12")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Gemini"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("25_yyg8h")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Cancer
+"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("26_b541b")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Leo
+"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+texture = ExtResource("27_4h77p")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+text = "Virgo
+"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+texture = ExtResource("28_3jbpy")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Libra
+"
+
+[node name="HBoxContainer8" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+texture = ExtResource("29_y2xee")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer8"]
+layout_mode = 2
+text = "Scorpio
+"
+
+[node name="HBoxContainer9" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+texture = ExtResource("30_72yck")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer9"]
+layout_mode = 2
+text = "Sagittarius"
+
+[node name="HBoxContainer10" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+texture = ExtResource("31_se1xq")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer10"]
+layout_mode = 2
+text = "Capricorn
+"
+
+[node name="HBoxContainer11" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+texture = ExtResource("32_w8ka3")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer11"]
+layout_mode = 2
+text = "Aquarius"
+
+[node name="HBoxContainer12" type="HBoxContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+texture = ExtResource("33_c65xc")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Signs/ScrollContainer/VBoxContainer/HBoxContainer12"]
+layout_mode = 2
+text = "Pisces"
 
 [node name="Regulations" type="Control" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info"]
 layout_mode = 2
@@ -438,11 +730,23 @@ offset_top = 9.0
 offset_right = -5.0
 offset_bottom = -9.0
 
+[node name="Title" type="Label" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Regulations"]
+layout_mode = 0
+offset_left = -13.0
+offset_top = -5.0
+offset_right = 110.0
+offset_bottom = 17.0
+text = "Rules"
+label_settings = SubResource("LabelSettings_0h2do")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Control/BookGUI/Book/TabContainer/Info/Regulations"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 22.0
 grow_horizontal = 2
 grow_vertical = 2
 horizontal_scroll_mode = 0
@@ -577,6 +881,14 @@ theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_gkf6h")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_b3sha")
 flat = true
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("22_0s4xp")
+volume_db = -5.0
+
+[node name="SoundComponent" type="Node" parent="."]
+script = ExtResource("23_bwx3i")
+sounds = Array[ExtResource("24_hoovg")]([SubResource("Resource_lu6bo"), SubResource("Resource_tamhl"), SubResource("Resource_phxdp"), SubResource("Resource_nusir"), SubResource("Resource_mh7et")])
+
 [connection signal="button_down" from="CanvasLayer/Control/ShowBook" to="CanvasLayer/Control" method="_on_show_book_button_down"]
 [connection signal="god_selected" from="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods" to="." method="_on_gods_god_selected"]
 [connection signal="god_selected" from="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods" to="CanvasLayer/Control" method="_on_gods_god_selected"]
@@ -586,5 +898,3 @@ flat = true
 [connection signal="pressed" from="GoodStamp/Button" to="." method="_on_good_button_pressed"]
 [connection signal="pressed" from="MidStamp/Button2" to="." method="_on_mid_button_pressed"]
 [connection signal="pressed" from="BadStamp/Button3" to="." method="_on_bad_button_pressed"]
-
-[editable path="CanvasLayer/Control/BookGUI/Book/TabContainer/Gods"]

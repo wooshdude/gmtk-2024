@@ -1,0 +1,212 @@
+[gd_scene load_steps=23 format=3 uid="uid://cffax4q03eaod"]
+
+[ext_resource type="Texture2D" uid="uid://pbfvxrtcex4x" path="res://assets/results.png" id="1_g0y85"]
+[ext_resource type="Script" path="res://scenes/results.gd" id="1_m05ki"]
+[ext_resource type="Texture2D" uid="uid://b5gfbwyb71ntg" path="res://assets/osiris.png" id="3_77f1b"]
+[ext_resource type="Texture2D" uid="uid://b2i004l0d021w" path="res://assets/isis.png" id="4_fuxkx"]
+[ext_resource type="Texture2D" uid="uid://gnsvijqxo65r" path="res://assets/set.png" id="5_6y8gm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sngme"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(0, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktiwg"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(370, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ym28n"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(740, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f77l8"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(1110, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c44sa"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(1480, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5r7wv"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(1850, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4j231"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(2220, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k2gl4"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(2590, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j05xt"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(2960, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft4js"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(3330, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi4pw"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(3700, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4whq8"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(4070, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_augoe"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(4440, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvngj"]
+atlas = ExtResource("1_g0y85")
+region = Rect2(4810, 0, 370, 208)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_giqh7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sngme")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ktiwg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ym28n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f77l8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c44sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5r7wv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4j231")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k2gl4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j05xt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft4js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi4pw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4whq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_augoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvngj")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6ln30"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p3u1j"]
+bg_color = Color(0.941375, 0.768917, 0.588174, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+
+[node name="Results" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m05ki")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_giqh7")
+frame = 13
+frame_progress = 1.0
+centered = false
+
+[node name="Gods" type="VBoxContainer" parent="."]
+clip_contents = true
+layout_mode = 0
+offset_left = 114.0
+offset_top = 47.0
+offset_right = 261.0
+offset_bottom = 190.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Gods"]
+clip_contents = true
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Gods/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_77f1b")
+
+[node name="ProgressBar" type="ProgressBar" parent="Gods/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxEmpty_6ln30")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p3u1j")
+max_value = 20.0
+show_percentage = false
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Gods"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Gods/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("4_fuxkx")
+
+[node name="ProgressBar" type="ProgressBar" parent="Gods/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxEmpty_6ln30")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p3u1j")
+max_value = 20.0
+show_percentage = false
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Gods"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Gods/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("5_6y8gm")
+
+[node name="ProgressBar" type="ProgressBar" parent="Gods/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxEmpty_6ln30")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p3u1j")
+max_value = 20.0
+show_percentage = false
+
+[node name="Reveal" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 267.0
+offset_top = 194.0
+offset_right = 427.0
+offset_bottom = 346.0
+rotation = 3.14159
+color = Color(0.156802, 0.082063, 0, 1)
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

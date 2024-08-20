@@ -1,17 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://3mcrgihku5cu"]
+[gd_scene load_steps=10 format=3 uid="uid://3mcrgihku5cu"]
 
 [ext_resource type="Texture2D" uid="uid://dm4t8i4wba251" path="res://icon.svg" id="1_7xj24"]
 [ext_resource type="Script" path="res://scripts/ui/god_list.gd" id="1_gnvf2"]
 [ext_resource type="Script" path="res://scripts/ui/god_button.gd" id="1_onedv"]
+[ext_resource type="Texture2D" uid="uid://dqhv0gmhsvihu" path="res://assets/sprites/gods.png" id="2_qr36y"]
 [ext_resource type="FontFile" uid="uid://deuvnxihu7d2v" path="res://assets/fonts/Scrambled_Eggs.ttf" id="4_d5sgo"]
 [ext_resource type="Theme" uid="uid://dnk0uqvjlp3v0" path="res://assets/default_theme.tres" id="4_e0fpd"]
-
-[sub_resource type="Gradient" id="Gradient_7uwyn"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_5hnoo"]
-gradient = SubResource("Gradient_7uwyn")
-fill_from = Vector2(0, 1)
-fill_to = Vector2(0, 0)
 
 [sub_resource type="LabelSettings" id="LabelSettings_ntbrp"]
 font = ExtResource("4_d5sgo")
@@ -36,16 +30,19 @@ script = ExtResource("1_gnvf2")
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -257.0
+offset_bottom = -60.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture2D_5hnoo")
+texture = ExtResource("2_qr36y")
+stretch_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

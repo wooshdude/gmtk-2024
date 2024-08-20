@@ -12,7 +12,9 @@ constellation = 0
 trade = 0
 dialogue = "Hi- um... I think I died?"
 memos = Array[ExtResource("2_su2o5")]([])
-regulation = ""
+regulation = "Weigh the soul's Heart against the Feather of Ma’at to judge the purity of the soul. The lighter the heart is, the more pure the soul.
+
+Pure souls are to be marked with the Brand of Osiris (Green). Impure souls are to be marked with the Brand of Set (Red)."
 
 [sub_resource type="Resource" id="Resource_j7ane"]
 script = ExtResource("1_720wt")
@@ -20,7 +22,7 @@ answer = 2
 purity = 6
 constellation = 0
 trade = 0
-dialogue = "You know- you remind me of this one dog I bought my wife. It was a sad little creature."
+dialogue = "You know- you remind me of a dog my wife had. Sad little thing, it was."
 memos = Array[ExtResource("2_su2o5")]([])
 regulation = ""
 

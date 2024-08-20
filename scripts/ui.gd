@@ -10,6 +10,8 @@ extends Control
 
 var mouse_inside_book:bool
 
+@onready var sound_component: SoundComponent = $"../../SoundComponent"
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,6 +29,7 @@ func _on_show_book_button_down() -> void:
 	new_tween.tween_property(book_gui, "position", Vector2(book_gui.position.x,0), 0.2).set_trans(Tween.TRANS_SINE)
 	await new_tween.finished
 	book_texture.play("open")
+	sound_component.play("book_open")
 	await book_texture.animation_finished
 	book.show()
 
@@ -34,6 +37,7 @@ func _on_show_book_button_down() -> void:
 func _on_close_button_down() -> void:
 	book.hide()
 	book_texture.play("close")
+	sound_component.play("book_close")
 	await book_texture.animation_finished
 	var new_tween = create_tween()
 	new_tween.tween_property(book_gui, "position", Vector2(book_gui.position.x,get_viewport_rect().size.y), 0.2).set_trans(Tween.TRANS_SINE)
@@ -57,8 +61,10 @@ func _on_gods_tab_pressed() -> void:
 	if tab_container.current_tab == 0: return
 	book.hide()
 	book_texture.play("close")
+	sound_component.play("book_close")
 	await book_texture.animation_finished
 	book_texture.play("open")
+	sound_component.play("book_open")
 	await book_texture.animation_finished
 	book.show()
 	tab_container.current_tab = 0
@@ -68,8 +74,10 @@ func _on_info_tab_pressed() -> void:
 	if tab_container.current_tab == 1: return
 	book.hide()
 	book_texture.play("close")
+	sound_component.play("book_close")
 	await book_texture.animation_finished
 	book_texture.play("open")
+	sound_component.play("book_open")
 	await book_texture.animation_finished
 	book.show()
 	tab_container.current_tab = 1

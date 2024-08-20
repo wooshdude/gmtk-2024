@@ -21,8 +21,9 @@ func check_can_drag(object:Draggable) -> bool:
 	return true
 
 func on_heart(object:Draggable) -> bool:
-	return (object.global_position - heart.global_position).length() < heart_radius
-	
+	if is_instance_valid(heart):
+		return (object.global_position - heart.global_position).length() < heart_radius
+	return false
 
 func get_confines_start():
 	return confines.position - confines.scale * confines.texture.get_size()/2

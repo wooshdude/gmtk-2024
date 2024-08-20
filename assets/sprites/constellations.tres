@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://b3850dvyfs3x"]
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://p6swn1rb8dcm"]
 
 [ext_resource type="Texture2D" uid="uid://bqbfmgk0flksh" path="res://assets/sprites/constellations/constellation_1.png" id="1_45da1"]
 [ext_resource type="Texture2D" uid="uid://dvthf82j4q5ml" path="res://assets/sprites/constellations/constellation_2.png" id="2_jegkj"]

@@ -1,0 +1,124 @@
+[gd_scene load_steps=23 format=3 uid="uid://dttupj0h5we08"]
+
+[ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_fj15w"]
+[ext_resource type="Texture2D" uid="uid://iojgfswvuahq" path="res://assets/menu.png" id="1_ugr5q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea1ux"]
+atlas = ExtResource("1_ugr5q")
+region = Rect2(0, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4i0e"]
+atlas = ExtResource("1_ugr5q")
+region = Rect2(370, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fay5p"]
+atlas = ExtResource("1_ugr5q")
+region = Rect2(740, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2avov"]
+atlas = ExtResource("1_ugr5q")
+region = Rect2(1110, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt2yg"]
+atlas = ExtResource("1_ugr5q")
+region = Rect2(1480, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iy5d6"]
+atlas = ExtResource("1_ugr5q")
+region = Rect2(1850, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udo2l"]
+atlas = ExtResource("1_ugr5q")
+region = Rect2(2220, 0, 370, 208)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0u2j"]
+atlas = ExtResource("1_ugr5q")
+region = Rect2(2590, 0, 370, 208)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3cv2m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea1ux")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4i0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fay5p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2avov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt2yg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iy5d6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udo2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c0u2j")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_klmd0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wuw4w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k2i55"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ntwp4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_b2u44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fbydo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8he6i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8nmrd"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ynoes"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m8re6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yaxn0"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fj15w")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3cv2m")
+frame_progress = 0.565177
+centered = false
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 157.0
+offset_right = 173.0
+offset_bottom = 206.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_klmd0")
+theme_override_styles/disabled_mirrored = SubResource("StyleBoxEmpty_wuw4w")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_k2i55")
+theme_override_styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_ntwp4")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_b2u44")
+theme_override_styles/hover_mirrored = SubResource("StyleBoxEmpty_fbydo")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8he6i")
+theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_8nmrd")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ynoes")
+theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_m8re6")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_yaxn0")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

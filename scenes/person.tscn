@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://cagsgtgpfoobg"]
+[gd_scene load_steps=71 format=3 uid="uid://cagsgtgpfoobg"]
 
 [ext_resource type="Script" path="res://scripts/systems/people/person_node.gd" id="1_2xjdu"]
 [ext_resource type="Texture2D" uid="uid://cbc36gtkpa3bn" path="res://assets/sprites/silly guy blank-sheet.png" id="2_4elp4"]
@@ -8,12 +8,17 @@
 [ext_resource type="Shader" path="res://assets/shaders/scroll_bg.gdshader" id="3_l6jnw"]
 [ext_resource type="Texture2D" uid="uid://t26e7yl34u5e" path="res://assets/sprites/xray_tile.png" id="4_wod1j"]
 [ext_resource type="Shader" path="res://assets/shaders/mask.gdshader" id="5_6yk2f"]
-[ext_resource type="SpriteFrames" uid="uid://b3850dvyfs3x" path="res://assets/sprites/constellations.tres" id="6_4u6xm"]
+[ext_resource type="SpriteFrames" uid="uid://p6swn1rb8dcm" path="res://assets/sprites/constellations.tres" id="6_4u6xm"]
 [ext_resource type="Texture2D" uid="uid://c4atpvk17aj7f" path="res://assets/sprites/xray_mask.png" id="6_kgptw"]
 [ext_resource type="Script" path="res://scripts/ui/constellation_node.gd" id="7_878vq"]
 [ext_resource type="Script" path="res://scripts/ui/xray/mask.gd" id="7_ynoux"]
 [ext_resource type="Theme" uid="uid://dnk0uqvjlp3v0" path="res://assets/default_theme.tres" id="13_7fpsh"]
 [ext_resource type="Script" path="res://scripts/ui/dialogue.gd" id="14_nedu8"]
+[ext_resource type="Script" path="res://scripts/systems/components/sound_component.gd" id="15_httk6"]
+[ext_resource type="Script" path="res://scripts/systems/components/sound.gd" id="16_rybqs"]
+[ext_resource type="AudioStream" uid="uid://dx6wpef2hgh7w" path="res://assets/sounds/body fall 5.wav" id="17_vmrla"]
+[ext_resource type="AudioStream" uid="uid://cmp7xss8t1ce5" path="res://assets/sounds/body fall 8.wav" id="18_hjp1t"]
+[ext_resource type="AudioStream" uid="uid://dl01s62ytbxq0" path="res://assets/sounds/body fall 9.wav" id="19_rehqa"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1207"]
 atlas = ExtResource("2_au81b")
@@ -314,6 +319,12 @@ shader_parameter/offset = Vector2(0, 0)
 shader_parameter/scale = Vector2(1, 1)
 shader_parameter/angle = 0.0
 
+[sub_resource type="Resource" id="Resource_iqf55"]
+script = ExtResource("16_rybqs")
+sound_name = "drop_item"
+sounds = Array[AudioStream]([ExtResource("17_vmrla"), ExtResource("18_hjp1t"), ExtResource("19_rehqa")])
+volume_db = -8.0
+
 [node name="Person" type="Node2D"]
 z_index = -1
 script = ExtResource("1_2xjdu")
@@ -431,5 +442,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="SoundComponent" type="Node" parent="."]
+script = ExtResource("15_httk6")
+sounds = Array[ExtResource("16_rybqs")]([SubResource("Resource_iqf55")])
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
