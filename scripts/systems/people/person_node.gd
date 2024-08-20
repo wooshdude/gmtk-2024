@@ -2,8 +2,9 @@ extends Node2D
 class_name PersonNode
 @onready var person_texture: AnimatedSprite2D = $PersonTexture
 @onready var dialogue: Control = $CanvasLayer/Dialogue
-@onready var constellation: AnimatedSprite2D = $PersonCopy/XrayInsides/Const
+@onready var constellation: AnimatedSprite2D = $PersonCopy/Const
 @onready var sound_component: SoundComponent = $SoundComponent
+@onready var person_copy: AnimatedSprite2D = $PersonCopy
 
 var elapsed:float = 0
 var elapse_speed = 20
@@ -81,6 +82,7 @@ func create_draggable() -> Draggable:
 func _on_damned():
 	self.person_texture.play("attacked")
 	remove_items()
+	person_copy.queue_free()
 	await person_texture.animation_finished
 	_on_person_left()
 

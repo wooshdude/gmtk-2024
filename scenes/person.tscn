@@ -285,6 +285,22 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_froxh"]
+shader = ExtResource("3_l6jnw")
+shader_parameter/speed = 0.3
+shader_parameter/direction = Vector2(1, 1)
+shader_parameter/offset = null
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uhk7s"]
+shader = ExtResource("5_6yk2f")
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/angle = null
+shader_parameter/sheet_columns = 1
+shader_parameter/sheet_rows = 1
+shader_parameter/enabled = 1.0
+shader_parameter/mask = ExtResource("6_kgptw")
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ekkjk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_42pj1"]
@@ -307,18 +323,6 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_13k34"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_froxh"]
-shader = ExtResource("3_l6jnw")
-shader_parameter/speed = 0.3
-shader_parameter/direction = Vector2(1, 1)
-shader_parameter/offset = null
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_2gagq"]
-shader = ExtResource("5_6yk2f")
-shader_parameter/offset = Vector2(0, 0)
-shader_parameter/scale = Vector2(1, 1)
-shader_parameter/angle = 0.0
-
 [sub_resource type="Resource" id="Resource_iqf55"]
 script = ExtResource("16_rybqs")
 sound_name = "drop_item"
@@ -330,11 +334,44 @@ z_index = -1
 script = ExtResource("1_2xjdu")
 person_data = ExtResource("2_5j46c")
 
-[node name="PersonTexture" type="AnimatedSprite2D" parent="."]
+[node name="PersonCopy" type="AnimatedSprite2D" parent="."]
 clip_children = 2
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_tre03")
+script = ExtResource("3_6f1ub")
+
+[node name="XrayBG" type="TextureRect" parent="PersonCopy"]
+modulate = Color(0.619846, 0.476943, 0.627205, 1)
+texture_repeat = 2
+material = SubResource("ShaderMaterial_froxh")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -177.5
+offset_top = -218.5
+offset_right = 51.5
+offset_bottom = 10.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("4_wod1j")
+stretch_mode = 1
+
+[node name="Const" type="AnimatedSprite2D" parent="PersonCopy"]
+modulate = Color(0.384365, 0.819491, 0.719755, 1)
+position = Vector2(3, -11)
+sprite_frames = ExtResource("6_4u6xm")
+script = ExtResource("7_878vq")
+
+[node name="PersonTexture" type="AnimatedSprite2D" parent="."]
+clip_children = 2
+material = SubResource("ShaderMaterial_uhk7s")
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_tre03")
 animation = &"attacked"
+script = ExtResource("7_ynoux")
 
 [node name="Button" type="Button" parent="."]
 offset_left = -21.0
@@ -352,47 +389,6 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_7lt2u")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_mu5qc")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_6t8gj")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_13k34")
-
-[node name="PersonCopy" type="AnimatedSprite2D" parent="."]
-clip_children = 2
-position = Vector2(0, -24)
-sprite_frames = SubResource("SpriteFrames_tre03")
-script = ExtResource("3_6f1ub")
-
-[node name="XrayInsides" type="BackBufferCopy" parent="PersonCopy"]
-position = Vector2(3, -11)
-copy_mode = 0
-
-[node name="XrayBG" type="TextureRect" parent="PersonCopy/XrayInsides"]
-modulate = Color(0.619846, 0.476943, 0.627205, 1)
-texture_repeat = 2
-material = SubResource("ShaderMaterial_froxh")
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -210.0
-offset_top = -210.0
-offset_right = 19.0
-offset_bottom = 19.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("4_wod1j")
-stretch_mode = 1
-
-[node name="Const" type="AnimatedSprite2D" parent="PersonCopy/XrayInsides"]
-modulate = Color(0.384365, 0.819491, 0.719755, 1)
-sprite_frames = ExtResource("6_4u6xm")
-script = ExtResource("7_878vq")
-
-[node name="Mask" type="Sprite2D" parent="PersonCopy/XrayInsides"]
-material = SubResource("ShaderMaterial_2gagq")
-position = Vector2(2, 2)
-scale = Vector2(6, 6)
-texture = ExtResource("6_kgptw")
-script = ExtResource("7_ynoux")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

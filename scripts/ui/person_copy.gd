@@ -12,8 +12,10 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	offset = person_texture.offset
-	if person.xray is Node2D:
-		xray_insides.visible = not person.xray.disabled
+	if person.xray is Node2D and person.xray.disabled:
+		person_texture.material.set_shader_parameter("enabled", 0)
+	else:
+		person_texture.material.set_shader_parameter("enabled", 1)
 	offset = person_texture.offset
 
 func _on_texture_changed():

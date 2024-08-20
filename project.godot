@@ -26,7 +26,6 @@ GrabManager="*res://scripts/systems/grab_manager.gd"
 
 window/size/viewport_width=370
 window/size/viewport_height=208
-window/size/mode=3
 window/size/window_width_override=1152
 window/size/window_height_override=648
 window/stretch/mode="canvas_items"
@@ -50,3 +49,4 @@ locale/translations_pot_files=PackedStringArray("res://dialogue/balls.dialogue")
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
