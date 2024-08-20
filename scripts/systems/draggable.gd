@@ -136,6 +136,7 @@ func remove():
 	tween.tween_property(self, "modulate:a", 0, 0.5).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_EXPO)
 
 func _stamped(god):
+	disabled = true
 	if tween: tween.stop()
 	tween =  create_tween()
 	tween.tween_property(self, "position:y", 256, 0.9).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUINT).set_delay(0.5)

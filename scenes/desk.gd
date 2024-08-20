@@ -43,7 +43,8 @@ func _on_person_ready():
 
 func _on_stamped(god):
 	if(allow_judgement):
-		GlobalSignals.dismiss.emit()
+		if god == GodManager.Gods.SET: GlobalSignals.damn.emit()
+		else: GlobalSignals.dismiss.emit()
 		GodManager.receive_person(god, current_person.person_data)
 		var imprint:AnimatedSprite2D = imprint_scene.instantiate()
 		GrabManager.heart.add_child(imprint)

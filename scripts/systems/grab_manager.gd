@@ -6,7 +6,7 @@ var confines:Sprite2D
 var drop_z = 2
 var grab_z = 4
 var last_grab_z = 3
-var stamp_z = 5
+var stamp_z = 3
 var heart:Draggable
 var heart_radius = 20
 

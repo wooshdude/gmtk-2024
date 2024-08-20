@@ -13,7 +13,7 @@ var heart:Draggable
 
 @export var person_data:Person :
 	set(value):
-		print("new data %s" % value)
+		#print("new data %s" % value)
 		person_data = value
 
 
@@ -92,7 +92,7 @@ func _on_dismissed():
 
 func _on_tween_finished():
 	await get_tree().physics_frame
-	if person_data:
+	if person_data and false:
 		print("person %s" % person_data)
 		print("weight: %s" % person_data.weight)
 		print("constellation: %s" % person_data.constellation)

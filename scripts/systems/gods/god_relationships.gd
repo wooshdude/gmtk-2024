@@ -33,6 +33,7 @@ class God:
 			if value - relationship < 0:
 				GlobalSignals.notification.emit("%s will remember this." % name)
 			print("%s' relationship updated by %s" % [self.name, value - relationship])
+			relationship = value
 	var purity_range:Array[float]
 	var appeased:bool = false
 	
@@ -74,30 +75,13 @@ func check_correct_god(person:Person, god:Gods):
 		get_god(person.answer).relationship -= 1
 		g.relationship -= 1
 
-#func calc_rep(person:Person, god:Gods):
-	#var rep = []
-	#rep.resize(get_number_of_godes())
-	#rep.fill(0)
-	#
-	#if person.memos.size() > 0:
-		#for memo in person.memos:
-			#get_god(memo.from).appeased = true
-			#for m in memo.send_to:
-				#if god == m:
-					#rep[memo.from] += 2
-					#break;
-				#
-				#rep[memo.from] -= 2
-	#
-	#var g = get_god(god)
-	#if g.appeased: return
-	#if person.answer == god:
-		#g.relationship += 1
-	#else:
-		#get_god(person.answer).relationship -= 1
-		#g.relationship -= 1
-	
+func get_relationships() -> Array:
+	return gods.reduce(func(accum:Array, god):
+		accum.append(god.relationship)
+		return accum, [])
+
 
 func _on_next_person():
 	for god in gods:
 		god.appeased = false
+	print(get_relationships())

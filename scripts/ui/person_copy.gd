@@ -11,6 +11,7 @@ func _ready() -> void:
 	show()
 	
 func _process(delta: float) -> void:
+	offset = person_texture.offset
 	if person.xray is Node2D:
 		xray_insides.visible = not person.xray.disabled
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=3 uid="uid://dhxoqc2og68rd"]
+[gd_scene load_steps=83 format=3 uid="uid://dhxoqc2og68rd"]
 
 [ext_resource type="Script" path="res://scenes/desk.gd" id="1_kqsai"]
 [ext_resource type="Script" path="res://scripts/ui.gd" id="2_4086j"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scripts/systems/draggable.gd" id="7_l0jto"]
 [ext_resource type="Texture2D" uid="uid://c16d4p14olnf3" path="res://assets/sprites/scale/cup_2.png" id="8_u5i0x"]
 [ext_resource type="Texture2D" uid="uid://q6aejrqu8g15" path="res://assets/sprites/scale/cup_1.png" id="9_nrywn"]
+[ext_resource type="Texture2D" uid="uid://ia30eql5yqbk" path="res://assets/sprites/feather.png" id="10_vadrd"]
 [ext_resource type="Script" path="res://scripts/ui/xray/xray_transform.gd" id="12_q4x0c"]
 [ext_resource type="Texture2D" uid="uid://cj2ln7rdio0h6" path="res://assets/sprites/bookui.png" id="17_i7hiq"]
 [ext_resource type="Texture2D" uid="uid://b6w160w7hn2mx" path="res://assets/sprites/stamp2.png" id="18_jljtp"]
@@ -270,6 +271,11 @@ z_as_relative = false
 position = Vector2(-25, -1)
 texture = ExtResource("9_nrywn")
 offset = Vector2(0, 15)
+
+[node name="Feather" type="Sprite2D" parent="Scale/Fulcrum/CupL"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 21)
+texture = ExtResource("10_vadrd")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_kf21s")
