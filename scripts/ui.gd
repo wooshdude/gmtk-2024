@@ -22,7 +22,6 @@ func _ready() -> void:
 
 
 func _on_show_book_button_down() -> void:
-	book.get_child(0).current_tab = 0
 	var new_tween = create_tween()
 	new_tween.tween_property(book_gui, "position", Vector2(book_gui.position.x,0), 0.2).set_trans(Tween.TRANS_SINE)
 	await new_tween.finished
