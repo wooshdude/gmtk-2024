@@ -15,6 +15,7 @@ var mouse_inside_book:bool
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	tab_container.current_tab = 0
 	GlobalSignals.regulation.connect(_on_regulation_added)
 	book_gui.position.y = get_viewport_rect().size.y
 	book_gui.show()
