@@ -12,7 +12,7 @@ constellation = 0
 trade = 0
 dialogue = "Hi- um... I think I died?"
 memos = Array[ExtResource("2_su2o5")]([])
-regulation = "Weigh the soul's Heart against the Feather of Ma’at to judge the purity of the soul. The lighter the heart is, the more pure the soul.
+regulation = "Weigh the soul's Heart against the Feather of Ma'at to judge the purity of the soul. The lighter the heart is, the more pure the soul.
 
 Pure souls are to be marked with the Brand of Osiris (Green). Impure souls are to be marked with the Brand of Set (Red)."
 
