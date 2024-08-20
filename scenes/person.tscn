@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cagsgtgpfoobg"]
+[gd_scene load_steps=70 format=3 uid="uid://cagsgtgpfoobg"]
 
 [ext_resource type="Script" path="res://scripts/systems/people/person_node.gd" id="1_2xjdu"]
 [ext_resource type="Texture2D" uid="uid://cbc36gtkpa3bn" path="res://assets/sprites/silly guy blank-sheet.png" id="2_4elp4"]
@@ -12,8 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c4atpvk17aj7f" path="res://assets/sprites/xray_mask.png" id="6_kgptw"]
 [ext_resource type="Script" path="res://scripts/ui/constellation_node.gd" id="7_878vq"]
 [ext_resource type="Script" path="res://scripts/ui/xray/mask.gd" id="7_ynoux"]
-[ext_resource type="Theme" uid="uid://dnk0uqvjlp3v0" path="res://assets/default_theme.tres" id="13_7fpsh"]
-[ext_resource type="Script" path="res://scripts/ui/dialogue.gd" id="14_nedu8"]
+[ext_resource type="PackedScene" uid="uid://bylo3kwxulxb0" path="res://scenes/dialogue.tscn" id="13_t3r76"]
 [ext_resource type="Script" path="res://scripts/systems/components/sound_component.gd" id="15_httk6"]
 [ext_resource type="Script" path="res://scripts/systems/components/sound.gd" id="16_rybqs"]
 [ext_resource type="AudioStream" uid="uid://dx6wpef2hgh7w" path="res://assets/sounds/body fall 5.wav" id="17_vmrla"]
@@ -396,52 +395,7 @@ script = ExtResource("7_ynoux")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Dialogue" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 9.0
-offset_top = 8.0
-offset_right = -232.0
-offset_bottom = -182.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme = ExtResource("13_7fpsh")
-script = ExtResource("14_nedu8")
-metadata/_edit_group_ = true
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Dialogue"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 2.542
-offset_bottom = -27.756
-grow_horizontal = 2
-mouse_filter = 2
-fit_content = true
-shortcut_keys_enabled = false
-
-[node name="Panel" type="Panel" parent="CanvasLayer/Dialogue/RichTextLabel"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="Panel2" type="Panel" parent="CanvasLayer/Dialogue"]
-z_index = -1
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+[node name="Dialogue" parent="CanvasLayer" instance=ExtResource("13_t3r76")]
 
 [node name="SoundComponent" type="Node" parent="."]
 script = ExtResource("15_httk6")

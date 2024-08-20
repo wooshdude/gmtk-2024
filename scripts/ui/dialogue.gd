@@ -1,4 +1,5 @@
 extends Control
+class_name Dialogue
 
 @export_multiline var text:String
 @onready var rich_text_label: RichTextLabel = $RichTextLabel

@@ -1,10 +1,11 @@
-[gd_scene load_steps=23 format=3 uid="uid://cffax4q03eaod"]
+[gd_scene load_steps=24 format=3 uid="uid://cffax4q03eaod"]
 
 [ext_resource type="Texture2D" uid="uid://pbfvxrtcex4x" path="res://assets/results.png" id="1_g0y85"]
 [ext_resource type="Script" path="res://scenes/results.gd" id="1_m05ki"]
 [ext_resource type="Texture2D" uid="uid://b5gfbwyb71ntg" path="res://assets/osiris.png" id="3_77f1b"]
 [ext_resource type="Texture2D" uid="uid://b2i004l0d021w" path="res://assets/isis.png" id="4_fuxkx"]
 [ext_resource type="Texture2D" uid="uid://gnsvijqxo65r" path="res://assets/set.png" id="5_6y8gm"]
+[ext_resource type="PackedScene" uid="uid://bylo3kwxulxb0" path="res://scenes/dialogue.tscn" id="6_my6g3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sngme"]
 atlas = ExtResource("1_g0y85")
@@ -208,5 +209,18 @@ offset_right = 427.0
 offset_bottom = 346.0
 rotation = 3.14159
 color = Color(0.156802, 0.082063, 0, 1)
+
+[node name="Dialogue" parent="." instance=ExtResource("6_my6g3")]
+z_index = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -65.0
+offset_top = -11.0
+offset_right = 65.0
+offset_bottom = 11.0
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

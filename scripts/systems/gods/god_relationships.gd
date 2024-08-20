@@ -14,7 +14,7 @@ enum Need {
 
 enum Gods {
 	OSIRIS,    # good
-	ISIS,      # mid # bitch you were too normal, go back there and do someshit
+	ISIS,      # mid
 	SET        # bad
 }
 
